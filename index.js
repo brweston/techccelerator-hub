@@ -18,3 +18,4 @@ app.get('/', function(req, res, next) {
 
 // START SERVER
 app.listen(3000)
+console.log("Server has started at localhost:3000")
