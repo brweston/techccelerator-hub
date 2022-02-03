@@ -32,8 +32,17 @@ ul {
     padding: 0;
 }
 
-li {
+li.section {
     list-style: none;
+    border-bottom: 1px solid white;
+    padding-left: 30px;
+    line-height: 60px;
+}
+
+li.sub-section {
+    list-style: none;
+    display: none;
+    background-color: white;
     border-bottom: 1px solid white;
     padding-left: 30px;
     line-height: 60px;

@@ -13,8 +13,20 @@ app.set('view engine', 'ejs')
 
 // ROUTING
 app.get('/', function(req, res, next) {
-    res.render('index', {name: "Bridget"})
+    res.render('index', {page: 'intro', data: {name: "Bridget"}})
 })
+
+//Learn javascript section
+app.get('/sec-1', function(req, res, next) {
+    res.render('index', {page: "learn-js", data: {name: "Bobby-O"}})
+})
+/*
+WOULD THIS WORK?
+for s in sections
+app.post(s, function(req, res, next) {
+    res.render(sections[s].name, sections[s].data)
+})
+*/
 
 // START SERVER
 app.listen(3000)
