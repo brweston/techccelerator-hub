@@ -41,9 +41,42 @@ li.section {
 
 li.sub-section {
     list-style: none;
-    display: none;
     background-color: white;
     border-bottom: 1px solid white;
     padding-left: 30px;
     line-height: 60px;
+}
+
+.link-btn {
+    background-color: #eee;
+    height: 50px;
+    width: 80px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#game {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+#enemy {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: relative;
+    top: 150px;
+}
+
+#block {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: absolute;
+    top: 130px;
+    left: 480px;
 }

@@ -5,28 +5,28 @@ var path = require('path')
 var bodyParser = require('body-parser')
 let ejs = require('ejs')
 
+const sections = ["learn-js", "build-game", "test-knowledge"]
+
 // APP SETUP
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "/public")))
 app.set('view engine', 'ejs')
 
 // ROUTING
 app.get('/', function(req, res, next) {
-    res.render('index', {page: 'intro', data: {name: "Bridget"}})
+    res.render('intro', {name: "Bridget"})
 })
 
-//Learn javascript section
-app.get('/sec-1', function(req, res, next) {
-    res.render('index', {page: "learn-js", data: {name: "Bobby-O"}})
+sections.forEach(s => {
+    app.get("/" + s + "/:page", function(req, res, next) {
+        res.render('index', {
+            section: s,
+            page: req.params.page
+        })
+    })
 })
-/*
-WOULD THIS WORK?
-for s in sections
-app.post(s, function(req, res, next) {
-    res.render(sections[s].name, sections[s].data)
-})
-*/
+
 
 // START SERVER
 app.listen(3000)

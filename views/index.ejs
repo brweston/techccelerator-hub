@@ -5,24 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link type="text/css" rel="stylesheet" href="/css/index.css">
     <script src="js/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="container">
         <div id="sidebar">
-            <h3>Pre-Techccelerator</h3>
+            <a href="/"><h3>Pre-Techccelerator</h3></a>
             <ul>
-                <a href="/sec-1"><li class="section">Learn some Javascript</li></a>
-                <a href="/sec-2"><li class="section">Build your game</li></a>
-                <a href="/sec-2-1"><li class="sub-section">Add movement</li></a>
-                <a href="/sec-2-2"><li class="sub-section">Game rules</li></a>
-                <a href="/sec-2-3"><li class="sub-section">Upload to Github</li></a>
-                <a href="/sec-2"><li class="section">Test your knowledge</li></a>
+                <a href="/learn-js/1"><li class="section">Learn some Javascript</li></a>
+                <% if (section === "learn-js") {%>
+                    <a href="/learn-js/1"><li class="sub-section">What is Javascript?</li></a>
+                    <a href="/learn-js/2"><li class="sub-section">Basic Syntax</li></a>
+                    <a href="/learn-js/3"><li class="sub-section">DOM Elements</li></a>
+                <% } %>
+                <a href="/build-game/1"><li class="section">Build your game</li></a>
+                <% if (section === "build-game") {%>
+                    <a href="/build-game/1"><li class="sub-section">Add movement</li></a>
+                    <a href="/build-game/2"><li class="sub-section">Game rules</li></a>
+                    <a href="/build-game/3"><li class="sub-section">Upload to Github</li></a>
+                <% } %>
+                <a href="/test-knowledge/1"><li class="section">Test your knowledge</li></a>
+                <% if (section === "test-knowledge") {%>
+                    <a href="/test-knowledge/1"><li class="sub-section">Add movement</li></a>
+                <% } %>
             </ul>
         </div>
         <div id="main">
-            <%- include('partials/'+page, data) %>
+            <%- include('partials/'+section+'/page'+page) %>
+            <!--<%- include('partials/'+section) %>-->
         </div>
     </div>
 </body>
