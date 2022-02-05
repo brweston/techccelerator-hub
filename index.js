@@ -4,6 +4,7 @@ var app = express()
 var path = require('path')
 var bodyParser = require('body-parser')
 let ejs = require('ejs')
+var port = process.env.PORT || 3000
 
 const sections = ["learn-js", "build-game", "test-knowledge"]
 
@@ -29,5 +30,5 @@ sections.forEach(s => {
 
 
 // START SERVER
-app.listen(3000)
-console.log("Server has started at localhost:3000")
+app.listen(port)
+console.log(`Server has started at localhost:${port}`)
