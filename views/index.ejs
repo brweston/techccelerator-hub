@@ -7,34 +7,23 @@
     <title>Document</title>
     <link type="text/css" rel="stylesheet" href="/css/index.css">
     <script src="js/index.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/dcbd972c7e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="container">
+        <div id="header">
+            <a href="/"><div class="title">Pre-Techccelerator</div></a>
+            <div class="user">User</div>
+        </div>
+        <div id="progress">
+            <div id="done-bar"></div><div id="empty-bar"></div>
+            <div class="percent">38%</div>
+        </div>
         <div id="sidebar">
-            <a href="/"><h3>Pre-Techccelerator</h3></a>
-            <ul>
-                <a href="/learn-js/1"><li class="section">Learn some Javascript</li></a>
-                <% if (section === "learn-js") {%>
-                    <a href="/learn-js/1"><li class="sub-section">What is Javascript?</li></a>
-                    <a href="/learn-js/2"><li class="sub-section">Basic Syntax</li></a>
-                    <a href="/learn-js/3"><li class="sub-section">DOM Elements</li></a>
-                <% } %>
-                <a href="/build-game/1"><li class="section">Build your game</li></a>
-                <% if (section === "build-game") {%>
-                    <a href="/build-game/1"><li class="sub-section">Add movement</li></a>
-                    <a href="/build-game/2"><li class="sub-section">Game rules</li></a>
-                    <a href="/build-game/3"><li class="sub-section">Upload to Github</li></a>
-                <% } %>
-                <a href="/test-knowledge/1"><li class="section">Test your knowledge</li></a>
-                <% if (section === "test-knowledge") {%>
-                    <a href="/test-knowledge/1"><li class="sub-section">Add movement</li></a>
-                <% } %>
-            </ul>
+            <%- include('partials/sidebar', {section, sections}) %>
         </div>
         <div id="main">
             <%- include('partials/'+section+'/page'+page) %>
-            <!--<%- include('partials/'+section) %>-->
         </div>
     </div>
 </body>

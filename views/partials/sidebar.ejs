@@ -1,0 +1,10 @@
+<ul>
+    <% sections.forEach(s => { %>
+    <%- include('section', {link: s.link, name: s.name, done: s.done}) %>
+    <% if (section === s.key) { %>
+        <% s.subSections.forEach(ss => { %>
+            <%- include('subsection', {link: ss.link, name: ss.name, done: ss.done}) %>
+        <% }) %>
+    <% } %>
+    <% }) %>
+</ul>

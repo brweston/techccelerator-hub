@@ -5,6 +5,7 @@ h1 {
 body {
     height: 100%;
     margin: 0;
+    font-family: Georgia, serif;
 }
 
 html {
@@ -79,4 +80,64 @@ li.sub-section {
     position: absolute;
     top: 130px;
     left: 480px;
+}
+
+.section,.sub-section {
+    font-size: 20px;
+}
+
+i {
+    position: relative;
+    /* Adjust these values accordingly */
+    /*top: 5px;
+    left: 5px;*/
+    height: 20px;
+    width: 20px;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+#header {
+    height: 50px;
+    padding: 5px;
+    background-color: #ccc;
+}
+
+.title {
+    width: 200px;
+    float: left;
+}
+
+.user {
+    width: 50px;
+    float: right;
+}
+
+#progress {
+    padding: 0px 5px 0px 5px;
+    margin: none;
+}
+
+#done-bar {
+    border-radius: 4px 0px 0px 4px;
+    background-color: green;
+    width: 1280px;
+    height: 10px;
+    display: inline-block;
+}
+
+#empty-bar {
+    border-radius: 0px 4px 4px 0px;
+    background-color: lightgrey;
+    height: 10px;
+    display: inline-block;
+    width: 120px;
+}
+.percent {
+    float: right;
+    width: 20px;
 }

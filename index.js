@@ -6,10 +6,46 @@ var bodyParser = require('body-parser')
 let ejs = require('ejs')
 var port = process.env.PORT || 3000
 
-//hello
-//hello
+const sections = [
+    {
+        key: "learn-js",
+        name: "Learn Web Dev",
+        link: "/learn-js/1",
+        done: true,
+        subSections: [
+            {name: "What is Javascript?", link: "/learn-js/1", done: true},
+            {name: "Basic syntax", link: "/learn-js/2", done: true},
+            {name: "DOM Elements", link: "/learn-js/3", done: true},
+        ],
+    },
+    {
+        key: "build-game",
+        name: "BUild your game!",
+        link: "/build-game/1",
+        done: false,
+        subSections: [
+            {name: "Add Movement", link: "/build-game/1", done: true},
+            {name: "Game Rules", link: "/build-game/2", done: false},
+            {name: "Upload to Github", link: "/build-game/3", done: false},
+        ]
+    },
+    {
+        key: "test-knowledge",
+        name: "Test your knowledge",
+        link: "/test-knowledge/1",
+        done: false,
+        subSections: [
+            {name: "Section 1", link: "/test-knowledge/1", done: false},
+        ]
+    }
+]
 
-const sections = ["learn-js", "build-game", "test-knowledge"]
+//False means not completed
+const subSections = {
+    "learn-js": [true, true, true],
+    "build-game": [false, false, false],
+    "test-knowledge": [false]
+}
 
 // APP SETUP
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,14 +59,14 @@ app.get('/', function(req, res, next) {
 })
 
 sections.forEach(s => {
-    app.get("/" + s + "/:page", function(req, res, next) {
+    app.get("/" + s.key + "/:page", function(req, res, next) {
         res.render('index', {
-            section: s,
-            page: req.params.page
+            section: s.key,
+            page: req.params.page,
+            sections: sections
         })
     })
 })
-
 
 // START SERVER
 app.listen(port)
