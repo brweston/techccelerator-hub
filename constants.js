@@ -1,52 +1,258 @@
 const sections = [
     {
-        key: "learn-js",
-        name: "Learn Web Dev",
-        link: "/learn-js/1",
+        key: "setup",
+        name: "Setup",
+        link: "/setup/1",
         done: true,
+        subSections: [
+            {
+                name: "Install Git",
+                link: "/setup/1",
+                back: "/",
+                next:"/setup/2",
+                done: true,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Create project",
+                link: "/setup/2",
+                back: "/setup/1",
+                next:"/setup/3",
+                done: true,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Upload to Github",
+                link: "/setup/3",
+                back: "/setup/2",
+                next:"/learn-html/1",
+                done: true,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+        ]
+    },
+    {
+        key: "learn-html",
+        name: "HTML Tutorial",
+        link: "/learn-html/1",
+        done: false,
+        subSections: [
+            {
+                name: "What is HTML?",
+                link: "/learn-html/1",
+                back: "/setup/3",
+                next:"/learn-html/2",
+                done: true,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Parts of an HTML file",
+                link: "/learn-html/2",
+                back: "/learn-html/1",
+                next:"/learn-html/3",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Important tags",
+                link: "/learn-html/3",
+                back: "/learn-html/2",
+                next:"/learn-html/4",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Properties of tags",
+                link: "/learn-html/4",
+                back: "/learn-html/3",
+                next:"/learn-html/5",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Add HTML to your game",
+                link: "/learn-html/5",
+                back: "/learn-html/4",
+                next:"/learn-css/1",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+        ]
+    },
+    {
+        key: "learn-css",
+        name: "CSS Tutorial",
+        link: "/learn-css/1",
+        done: false,
+        subSections: [
+            {
+                name: "What is CSS?",
+                link: "/learn-css/1",
+                back: "/learn-html/5",
+                next:"/learn-css/2",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Basic syntax",
+                link: "/learn-css/2",
+                back: "/learn-css/1",
+                next:"/learn-css/3",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Important styles",
+                link: "/learn-css/3",
+                back: "/learn-css/2",
+                next:"/learn-css/4",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "The Box Method",
+                link: "/learn-css/4",
+                back: "/learn-css/3",
+                next:"/learn-css/5",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Dynamic styling",
+                link: "/learn-css/5",
+                back: "/learn-css/4",
+                next:"/learn-css/6",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Add CSS to your game",
+                link: "/learn-css/6",
+                back: "/learn-css/5",
+                next:"/learn-js/1",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+        ]
+    },
+    {
+        key: "learn-js",
+        name: "Javascript Tutorial",
+        link: "/learn-js/1",
+        done: false,
         subSections: [
             {
                 name: "What is Javascript?",
                 link: "/learn-js/1",
-                back: "/",
-                next: "/learn-js/2",
-                done: true,
+                back: "/learn-css/6",
+                next:"/learn-js/2",
+                done: false,
                 videoUrl: "../../movie.mp4",
-                questions: [
-                    {
-                        title: "What is the name of this song?",
-                        options: [
-                            "Option 0",
-                            "Option 1",
-                            "Option 2 (correct)",
-                            "Option 3",
-                        ],
-                        correct: 2,
-                    }
-                ]
+                questions: null
             },
-            {name: "Basic syntax", link: "/learn-js/2", back: "/learn-js/1", next: "/learn-js/3", done: true, videoUrl: null, questions: null},
-            {name: "DOM Elements", link: "/learn-js/3", back: "/learn-js/2", next: "/build-game/1", done: true, videoUrl: null, questions: null},
-        ],
-    },
-    {
-        key: "build-game",
-        name: "BUild your game!",
-        link: "/build-game/1",
-        done: false,
-        subSections: [
-            {name: "Add Movement", link: "/build-game/1", back: "/learn-js/3", next: "/build-game/2", done: true, videoUrl: null, questions: null},
-            {name: "Game Rules", link: "/build-game/2", back: "/build-game/1", next: "/build-game/3", done: false, videoUrl: null, questions: null},
-            {name: "Upload to Github", link: "/build-game/3", back: "/build-game/2", next: "/test-knowledge/1", done: false, videoUrl: null, questions: null},
+            {
+                name: "Variables",
+                link: "/learn-js/2",
+                back: "/learn-js/1",
+                next:"/learn-js/3",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Strings",
+                link: "/learn-js/3",
+                back: "/learn-js/2",
+                next:"/learn-js/4",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Arrays",
+                link: "/learn-js/4",
+                back: "/learn-js/3",
+                next:"/learn-js/5",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Objects",
+                link: "/learn-js/5",
+                back: "/learn-js/4",
+                next:"/learn-js/6",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Conditional statements",
+                link: "/learn-js/6",
+                back: "/learn-js/5",
+                next:"/learn-js/7",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Functions",
+                link: "/learn-js/7",
+                back: "/learn-js/6",
+                next:"/learn-js/8",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "DOM functions",
+                link: "/learn-js/8",
+                back: "/learn-js/7",
+                next:"/learn-js/9",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
+            {
+                name: "Add JS to your game",
+                link: "/learn-js/9",
+                back: "/learn-js/8",
+                next:"/finish/1",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
         ]
     },
     {
-        key: "test-knowledge",
-        name: "Test your knowledge",
-        link: "/test-knowledge/1",
+        key: "finish",
+        name: "Finish Project",
+        link: "/finish/1",
         done: false,
         subSections: [
-            {name: "Section 1", link: "/test-knowledge/1", back: "/build-game/3", next: "/", done: false, videoUrl: null, questions: null},
+            {
+                name: "Upload to Github",
+                link: "/finish/1",
+                back: "/learn-js/9",
+                next:"/",
+                done: false,
+                videoUrl: "../../movie.mp4",
+                questions: null
+            },
         ]
     }
 ]

@@ -1,5 +1,12 @@
+/* MAIN */
 :root {
     --green: #009900;
+    --light-green: #A4D1A2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -11,26 +18,30 @@ body {
 html {
     height: 100%;
 }
+
 #container {
     height: 100%;
 }
+
+#main {
+    position: absolute;
+    width: 700px;
+    min-height: 600px;
+    left: 250px;
+    top: 70px;
+    padding: 10px;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* SIDEBAR */
 #sidebar {
     float: left;
     width: 250px;
     height: 100%;
-    background-color: #eee;
-}
-
-#main {
-    /*float: right;
-    width: 80%;
-    height: 100%;*/
-    position: absolute;
-    width: 700px;
-    min-height: 700px;
-    left: 250px;
-    top: 70px;
-    padding: 10px;
 }
 
 ul {
@@ -42,18 +53,43 @@ ul {
 li.section {
     list-style: none;
     border-bottom: 1px solid white;
+    background-color: #ccc;
     padding-left: 30px;
     line-height: 60px;
 }
 
 li.sub-section {
     list-style: none;
-    background-color: white;
+    background-color: #eee;
     border-bottom: 1px solid white;
     padding-left: 30px;
     line-height: 60px;
 }
 
+.section,.sub-section {
+    font-size: 16px;
+}
+
+li.selected {
+    background-color: white;
+}
+
+i {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    right: 5px;
+}
+
+.fa-circle {
+    color: #aaa;
+}
+
+.fa-check-circle {
+    color: var(--green);
+}
+
+/* NAV BUTTONS */
 .nav-btn {
     background-color: var(--green);
     height: 50px;
@@ -65,15 +101,24 @@ li.sub-section {
 
 .nav-btn-disabled {
     cursor: not-allowed;
-    background-color: #eee;
-    color: #ccc;
+    background-color: var(--light-green);
+    color: #aaa;
 }
 
-* {
-    padding: 0;
-    margin: 0;
+.nav-buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.back {
+    float: left;
 }
 
+.next {
+    float: right;
+}
+
+/* GAME */
 #game {
     width: 500px;
     height: 200px;
@@ -97,40 +142,16 @@ li.sub-section {
     left: 480px;
 }
 
-.section,.sub-section {
-    font-size: 20px;
-}
-
-i {
-    position: relative;
-    /* Adjust these values accordingly */
-    /*top: 5px;
-    left: 5px;*/
-    height: 20px;
-    width: 20px;
-}
-
-.fa-circle {
-    color: #aaa;
-}
-.fa-check-circle {
-    color: var(--green);
-}
-
-a, a:hover, a:focus, a:active {
-    text-decoration: none;
-    color: inherit;
-}
-
-
+/* HEADER */
 #header {
     height: 50px;
     padding: 5px;
-    background-color: #ccc;
+    background-color: #aaa;
 }
 
 .title {
-    width: 200px;
+    min-width: 250px;
+    font-size: 25px;
     float: left;
 }
 
@@ -148,7 +169,7 @@ a, a:hover, a:focus, a:active {
     margin: none;
     display: block;
     position: absolute;
-    top: 25px;
+    top: 35px;
 }
 
 .header-text {
@@ -176,23 +197,12 @@ a, a:hover, a:focus, a:active {
     width: 20px;
 }
 
+/* PAGE (SUBSECTION PAGE) */
 .subsection-container {
     display: block;
     width: 700px;
 }
 
-video, .nav-buttons {
+video {
     width: 100%;
-}
-
-.nav-buttons {
-    position: absolute;
-    bottom: 0;
-}
-.back {
-    float: left;
-}
-
-.next {
-    float: right;
 }
