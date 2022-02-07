@@ -1,11 +1,11 @@
-h1 {
-    font-family: "Lucida Console", "Courier New", monospace;
+:root {
+    --green: #009900;
 }
 
 body {
     height: 100%;
     margin: 0;
-    font-family: Georgia, serif;
+    font-family: Verdana, serif;
 }
 
 html {
@@ -16,15 +16,21 @@ html {
 }
 #sidebar {
     float: left;
-    width: 20%;
+    width: 250px;
     height: 100%;
     background-color: #eee;
 }
 
 #main {
-    float: right;
+    /*float: right;
     width: 80%;
-    height: 100%;
+    height: 100%;*/
+    position: absolute;
+    width: 700px;
+    min-height: 700px;
+    left: 250px;
+    top: 70px;
+    padding: 10px;
 }
 
 ul {
@@ -48,10 +54,19 @@ li.sub-section {
     line-height: 60px;
 }
 
-.link-btn {
-    background-color: #eee;
+.nav-btn {
+    background-color: var(--green);
     height: 50px;
     width: 80px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.nav-btn-disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+    color: #ccc;
 }
 
 * {
@@ -95,6 +110,13 @@ i {
     width: 20px;
 }
 
+.fa-circle {
+    color: #aaa;
+}
+.fa-check-circle {
+    color: var(--green);
+}
+
 a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;
@@ -112,32 +134,65 @@ a, a:hover, a:focus, a:active {
     float: left;
 }
 
-.user {
+.login-out {
     width: 50px;
+    float: right;
+}
+
+.progress-saved {
     float: right;
 }
 
 #progress {
     padding: 0px 5px 0px 5px;
     margin: none;
+    display: block;
+    position: absolute;
+    top: 25px;
+}
+
+.header-text {
+    display: block;
+    height: 20px;
 }
 
 #done-bar {
     border-radius: 4px 0px 0px 4px;
-    background-color: green;
-    width: 1280px;
+    background-color: var(--green);
+    width: calc((1400px/100) * var(--percent));
     height: 10px;
     display: inline-block;
 }
 
 #empty-bar {
     border-radius: 0px 4px 4px 0px;
-    background-color: lightgrey;
+    background-color: white;
     height: 10px;
     display: inline-block;
-    width: 120px;
+    width: calc((1400px/100) * calc(100 - var(--percent)));
 }
 .percent {
     float: right;
     width: 20px;
+}
+
+.subsection-container {
+    display: block;
+    width: 700px;
+}
+
+video, .nav-buttons {
+    width: 100%;
+}
+
+.nav-buttons {
+    position: absolute;
+    bottom: 0;
+}
+.back {
+    float: left;
+}
+
+.next {
+    float: right;
 }

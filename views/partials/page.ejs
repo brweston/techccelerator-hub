@@ -1,0 +1,10 @@
+<h3><%= info.name %></h3>
+<% if (info.videoUrl) { %>
+    <video  height="500" controls>
+        <source src="<%= info.videoUrl %>" type="video/mp4">
+    </video>
+<% } %>
+<% if (info.questions) { %>
+    <%- include('quiz', {questions: info.questions}) %>
+<% } %>
+<%- include('nav-buttons', {back: info.back, next: info.next}) %>

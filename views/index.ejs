@@ -12,18 +12,18 @@
 <body>
     <div id="container">
         <div id="header">
-            <a href="/"><div class="title">Pre-Techccelerator</div></a>
-            <div class="user">User</div>
-        </div>
-        <div id="progress">
-            <div id="done-bar"></div><div id="empty-bar"></div>
-            <div class="percent">38%</div>
+            <div class="header-text">
+                <a href="/"><div class="title">Pre-Techccelerator</div></a>
+                <div class="progress-saved">Progress Saved X</div>
+                <div class="login-out">Logout</div>
+            </div>
+            <%- include('partials/progress-bar', {percentDone}) %>
         </div>
         <div id="sidebar">
             <%- include('partials/sidebar', {section, sections}) %>
         </div>
         <div id="main">
-            <%- include('partials/'+section+'/page'+page) %>
+            <%- include('partials/page', {info}) %>
         </div>
     </div>
 </body>
