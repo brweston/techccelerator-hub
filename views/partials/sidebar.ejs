@@ -1,10 +1,13 @@
 <ul>
     <% sections.forEach(s => { %>
-    <%- include('section', {link: s.link, name: s.name, done: s.done}) %>
-    <% if (section === s.key) { %>
-        <% s.subSections.forEach((ss, k) => { %>
-            <%- include('subsection', {link: ss.link, name: ss.name, done: ss.done, selected: (k === page - 1)}) %>
-        <% }) %>
-    <% } %>
+        <% var sectionLink = "/" + s.key + "/" + 1; %>
+        <%- include('section', {link: sectionLink, name: s.name, done: s.done}) %>
+        <% if (section === s.key) { %>
+            <% s.subSections.forEach((ss, k) => { %>
+                <% var l = "/" + s.key + "/" + (k+1); %>
+                <% var sel = (k === page - 1); %>
+                <%- include('subsection', {link: l, name: ss.name, done: ss.done, selected: sel}) %>
+            <% }) %>
+        <% } %>
     <% }) %>
 </ul>

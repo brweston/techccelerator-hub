@@ -1,3 +1,5 @@
+const videoUrl = "../../codevid.mov"
+
 const sections = [
     {
         key: "setup",
@@ -11,7 +13,7 @@ const sections = [
                 back: "/",
                 next:"/setup/2",
                 done: true,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -20,7 +22,7 @@ const sections = [
                 back: "/setup/1",
                 next:"/setup/3",
                 done: true,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -29,7 +31,7 @@ const sections = [
                 back: "/setup/2",
                 next:"/learn-html/1",
                 done: true,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
         ]
@@ -46,7 +48,7 @@ const sections = [
                 back: "/setup/3",
                 next:"/learn-html/2",
                 done: true,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -55,7 +57,7 @@ const sections = [
                 back: "/learn-html/1",
                 next:"/learn-html/3",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -64,7 +66,7 @@ const sections = [
                 back: "/learn-html/2",
                 next:"/learn-html/4",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -73,7 +75,7 @@ const sections = [
                 back: "/learn-html/3",
                 next:"/learn-html/5",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -82,7 +84,7 @@ const sections = [
                 back: "/learn-html/4",
                 next:"/learn-css/1",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
         ]
@@ -99,7 +101,7 @@ const sections = [
                 back: "/learn-html/5",
                 next:"/learn-css/2",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -108,7 +110,7 @@ const sections = [
                 back: "/learn-css/1",
                 next:"/learn-css/3",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -117,7 +119,7 @@ const sections = [
                 back: "/learn-css/2",
                 next:"/learn-css/4",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -126,7 +128,7 @@ const sections = [
                 back: "/learn-css/3",
                 next:"/learn-css/5",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -135,7 +137,7 @@ const sections = [
                 back: "/learn-css/4",
                 next:"/learn-css/6",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -144,7 +146,7 @@ const sections = [
                 back: "/learn-css/5",
                 next:"/learn-js/1",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
         ]
@@ -161,7 +163,7 @@ const sections = [
                 back: "/learn-css/6",
                 next:"/learn-js/2",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -170,7 +172,7 @@ const sections = [
                 back: "/learn-js/1",
                 next:"/learn-js/3",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -179,7 +181,7 @@ const sections = [
                 back: "/learn-js/2",
                 next:"/learn-js/4",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -188,7 +190,7 @@ const sections = [
                 back: "/learn-js/3",
                 next:"/learn-js/5",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -197,7 +199,7 @@ const sections = [
                 back: "/learn-js/4",
                 next:"/learn-js/6",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -206,7 +208,7 @@ const sections = [
                 back: "/learn-js/5",
                 next:"/learn-js/7",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -215,7 +217,7 @@ const sections = [
                 back: "/learn-js/6",
                 next:"/learn-js/8",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -224,7 +226,7 @@ const sections = [
                 back: "/learn-js/7",
                 next:"/learn-js/9",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
             {
@@ -233,7 +235,7 @@ const sections = [
                 back: "/learn-js/8",
                 next:"/finish/1",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
         ]
@@ -250,7 +252,7 @@ const sections = [
                 back: "/learn-js/9",
                 next:"/",
                 done: false,
-                videoUrl: "../../movie.mp4",
+                videoUrl,
                 questions: null
             },
         ]

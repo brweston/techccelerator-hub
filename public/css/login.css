@@ -1,0 +1,46 @@
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: #eee;
+    height: 300px;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+* {
+    font-family: Verdana, serif;
+}
+
+.title {
+    font-size: 40px;
+}
+
+.description {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    background: lightgreen;
+    height: 90px;
+    width: 300px;
+    line-height: 75px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    color: black;
+    font-size: 30px;
+    margin: 0 auto;
+    float: bottom;
+}
+
+a {
+    text-decoration: none;
+}
