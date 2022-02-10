@@ -24,6 +24,11 @@ const callbackUrl = '/login/oauth2/code/github'
 const clientId = '279afec342c1febf3ed3'
 const clientSecret = '47ee95a879c588d0b8198ca734febf75a60b6860'
 
+var token = "";
+var username;
+var imgUrl = "";
+var fullName;
+
 // DATABASE ROUTING
 app.post('/users', (req, res) => {
     User.create(req.body).then(() => {
@@ -40,21 +45,38 @@ app.get('/github-oauth', (req, res) => {
     res.redirect(`https://github.com/login/oauth/authorize?client_id=${clientId}&type=user_agent&redirect_uri=http://localhost:3000${callbackUrl}`);
 })
 
-var token = "";
 app.get(callbackUrl, (req, res) => {
     let body = {
         client_id: clientId,
         client_secret: clientSecret,
         code: req.query.code
     };
-    const opts = { headers: { accept: 'application/json' } };
+    let opts = { headers: { accept: 'application/json' } };
     axios.post(`https://github.com/login/oauth/access_token`, body, opts)
     .then(r => {
         token = r.data['access_token'];
-        //get github username and avatar
-        body = {access_token: token}
-        axios.get(githubApiBase + "/user", body, opts).then(rr => console.log(rr.data)).catch(e => console.log(e))
-        res.redirect("/")
+        const h = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/vnd.github.v3.raw',
+            'Authorization': `token ${token}`
+        }
+        axios.get(githubApiBase + "/user", {headers: h})
+        .then(rr => {
+            //username = rr.data.login
+            var { login, avatar_url, name, email } = rr.data
+            console.log(login)
+            console.log(avatar_url)
+            console.log(name)
+            console.log(email)
+            imgUrl = avatar_url
+            username = login;
+            fullName = name;
+            res.render('intro', {name: fullName})
+            //check if we have user register already
+            //if we do, change api key in db
+            //if not, redirect to register page
+        })
+        .catch(e => console.log(e))
     })
     .catch(err => {
         res.status(500).json({ message: err.message })
@@ -70,7 +92,7 @@ app.get('/users/:id', async (req, res) => {
 // ROUTING
 app.get('/', function(req, res, next) {
     if (token === "") res.render('login')
-    res.render('intro', {name: "Bridget"})
+    res.render('intro', {name: fullName})
 })
 
 app.get('/login', (req, res) => {
@@ -88,6 +110,9 @@ sections.forEach(s => {
             percentDone,
             generateBackLink,
             generateNextLink,
+            name: username,
+            avatar_url: imgUrl,
+            fullName,
         })
     })
 })

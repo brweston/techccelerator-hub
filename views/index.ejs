@@ -14,10 +14,11 @@
         <div id="header">
             <div class="header-text">
                 <a href="/"><div class="title">Pre-Techccelerator</div></a>
-                <div class="progress-saved">Progress Saved X</div>
-                <div class="login-out">Logout</div>
+                <div class="profile">
+                    <img src="<%= avatar_url %>" height="30px" width="30px">
+                    <div class="login-out"><%= name %></div>
+                </div>
             </div>
-            <%- include('partials/progress-bar', {percentDone}) %>
         </div>
         <div id="sidebar">
             <%- include('partials/sidebar', {section, sections, page}) %>
