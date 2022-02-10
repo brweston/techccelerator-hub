@@ -1,5 +1,39 @@
 const videoUrl = "../../codevid.mov"
 
+const generateBackLink = (subSectionInfo, sections, sectionInfo) => {
+    var s = sectionInfo.subSections
+    var i = s.indexOf(subSectionInfo)
+    var ss = sections.indexOf(sectionInfo)
+    var backLink = "/" + sectionInfo.key + "/" + i.toString()
+    if (i === 0) {
+        if (ss === 0) {
+            backLink = "/"
+        }
+        else {
+            var lastSection = sections[ss - 1]
+            backLink = "/" + lastSection.key + "/" + (lastSection.subSections.length).toString()
+        }
+    }
+    return backLink
+}
+
+const generateNextLink = (subSectionInfo, sections, sectionInfo) => {
+    var s = sectionInfo.subSections
+    var i = s.indexOf(subSectionInfo)
+    var ss = sections.indexOf(sectionInfo)
+    var nextLink = "/" + sectionInfo.key + "/" + (i + 2).toString()
+    if (i === s.length - 1) {
+        if (ss === sections.length - 1) {
+            nextLink = "/"
+        }
+        else {
+            var nextSection = sections[ss + 1]
+            nextLink = "/" + nextSection.key + "/1"
+        }
+    }
+    return nextLink
+}
+
 const sections = [
     {
         key: "setup",
@@ -258,4 +292,4 @@ const sections = [
         ]
     }
 ]
-module.exports = { sections: sections };
+module.exports = { sections, generateBackLink, generateNextLink };

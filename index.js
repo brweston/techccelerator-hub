@@ -5,7 +5,8 @@ var path = require('path')
 var bodyParser = require('body-parser')
 let ejs = require('ejs')
 var port = process.env.PORT || 3000
-const { sections } = require('./constants');
+const { sections, generateBackLink, generateNextLink } = require('./constants');
+const githubApiBase = "https://api.github.com"
 
 var numSubSections = 7;
 var percentDone = 57;
@@ -41,7 +42,7 @@ app.get('/github-oauth', (req, res) => {
 
 var token = "";
 app.get(callbackUrl, (req, res) => {
-    const body = {
+    let body = {
         client_id: clientId,
         client_secret: clientSecret,
         code: req.query.code
@@ -50,6 +51,9 @@ app.get(callbackUrl, (req, res) => {
     axios.post(`https://github.com/login/oauth/access_token`, body, opts)
     .then(r => {
         token = r.data['access_token'];
+        //get github username and avatar
+        body = {access_token: token}
+        axios.get(githubApiBase + "/user", body, opts).then(rr => console.log(rr.data)).catch(e => console.log(e))
         res.redirect("/")
     })
     .catch(err => {
@@ -82,6 +86,8 @@ sections.forEach(s => {
             page: req.params.page,
             sections,
             percentDone,
+            generateBackLink,
+            generateNextLink,
         })
     })
 })

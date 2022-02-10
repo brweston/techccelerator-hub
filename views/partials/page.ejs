@@ -7,4 +7,5 @@
 <% if (subSectionInfo.questions) { %>
     <%- include('quiz', {questions: subSectionInfo.questions}) %>
 <% } %>
-<%- include('nav-buttons', {back: subSectionInfo.back, next: subSectionInfo.next}) %>
+
+<%- include('nav-buttons', {back: generateBackLink(subSectionInfo, sections, sectionInfo), next: generateNextLink(subSectionInfo, sections, sectionInfo)}) %>
