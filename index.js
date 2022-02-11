@@ -17,7 +17,8 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "/public")))
 app.set('view engine', 'ejs')
 const sequelize = require('./database')
-const User = require('./User')
+const {User} = require('./models')
+const {findOrCreateUser} = require('./dbHelpers')
 sequelize.sync().then(() => console.log('db is ready'))
 const axios = require('axios')
 const callbackUrl = '/login/oauth2/code/github'
@@ -30,7 +31,7 @@ var imgUrl = "";
 var fullName;
 
 // DATABASE ROUTING
-app.post('/users', (req, res) => {
+/*app.post('/users', (req, res) => {
     User.create(req.body).then(() => {
         res.send("User is inserted")
     })
@@ -39,7 +40,7 @@ app.post('/users', (req, res) => {
 app.get('/users', async (req, res) => {
     const users = await User.findAll();
     res.send(users);
-})
+})*/
 
 app.get('/github-oauth', (req, res) => {
     res.redirect(`https://github.com/login/oauth/authorize?client_id=${clientId}&type=user_agent&redirect_uri=http://localhost:3000${callbackUrl}`);
@@ -71,7 +72,9 @@ app.get(callbackUrl, (req, res) => {
             imgUrl = avatar_url
             username = login;
             fullName = name;
-            res.render('intro', {name: fullName})
+
+            const user = findOrCreateUser(username, fullName, imgUrl)
+            res.render('intro', {name: user.name})
             //check if we have user register already
             //if we do, change api key in db
             //if not, redirect to register page

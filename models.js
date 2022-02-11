@@ -6,10 +6,10 @@ User.init({
     username: {
         type: DataTypes.STRING
     },
-    email: {
+    name: {
         type: DataTypes.STRING
     },
-    password: {
+    avatar_url: {
         type: DataTypes.STRING
     }
 }, {
@@ -17,4 +17,4 @@ User.init({
     modelName: 'user'
 })
 
-module.exports = User;
+module.exports = {User};

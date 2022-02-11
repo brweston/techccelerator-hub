@@ -72,6 +72,7 @@ li.sub-section {
 
 li.selected {
     background-color: white;
+    border-left: 15px solid #aaa;
 }
 
 i {
@@ -198,10 +199,6 @@ i {
 }
 
 /* PAGE (SUBSECTION PAGE) */
-.subsection-container {
-    display: block;
-    width: 700px;
-}
 
 video {
     width: 100%;
