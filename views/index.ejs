@@ -25,7 +25,11 @@
             <%- include('partials/sidebar', {section, sections, page}) %>
         </div>
         <div id="main">
-            <%- include('partials/page', {page, generateBackLink, generateNextLink, sections, sectionInfo, subSectionInfo}) %>
+            <% if (page === "intro") { %>
+                <%- include('partials/intro', {fullName}) %>
+            <% } else { %>
+                <%- include('partials/page', {page, generateBackLink, generateNextLink, sections, sectionInfo, subSectionInfo}) %>
+            <% } %>
         </div>
     </div>
 </body>

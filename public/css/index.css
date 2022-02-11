@@ -60,6 +60,7 @@ li.section {
 
 li.sub-section {
     list-style: none;
+    border-right: 1px solid #aaa;
     background-color: #eee;
     border-bottom: 1px solid white;
     padding-left: 30px;
@@ -72,7 +73,10 @@ li.sub-section {
 
 li.selected {
     background-color: white;
-    border-left: 15px solid #aaa;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    border-right: none;
+    /*border-left: 15px solid #aaa;*/
 }
 
 i {

@@ -1,6 +1,5 @@
+// LOAD ENVIRONMENT VARIABLES
 require('dotenv').config()
-console.log(process.env)
-
 
 // IMPORTS
 var express = require('express')
@@ -78,10 +77,20 @@ app.get(callbackUrl, (req, res) => {
             fullName = name;
 
             const user = findOrCreateUser(username, fullName, imgUrl)
-            res.render('intro', {name: user.name})
-            //check if we have user register already
-            //if we do, change api key in db
-            //if not, redirect to register page
+            /*res.render('index', {
+                section: s.key,
+                sectionInfo: s,
+                subSectionInfo: s.subSections[req.params.page - 1],
+                page: 'intro',
+                sections,
+                percentDone,
+                generateBackLink,
+                generateNextLink,
+                name: username,
+                avatar_url: imgUrl,
+                fullName: user.name,
+                })*/
+                res.redirect('/intro/1')
         })
         .catch(e => console.log(e))
     })
@@ -99,7 +108,8 @@ app.get('/users/:id', async (req, res) => {
 // ROUTING
 app.get('/', function(req, res, next) {
     if (token === "") res.render('login')
-    res.render('intro', {name: fullName})
+    res.redirect('/intro/1')
+    //res.render('index', {page: 'intro', fullName})
 })
 
 app.get('/login', (req, res) => {

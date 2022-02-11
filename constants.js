@@ -36,6 +36,21 @@ const generateNextLink = (subSectionInfo, sections, sectionInfo) => {
 
 const sections = [
     {
+        key: 'intro',
+        name: 'Introduction',
+        link: '/intro/1',
+        done: true,
+        subSections: [
+            {
+                name: "About this course",
+                link: "/intro/1",
+                done: true,
+                videoUrl: null,
+                questions: null,
+            }
+        ],
+    },
+    {
         key: "setup",
         name: "Setup",
         link: "/setup/1",
