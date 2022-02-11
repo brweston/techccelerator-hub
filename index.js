@@ -1,3 +1,7 @@
+require('dotenv').config()
+console.log(process.env)
+
+
 // IMPORTS
 var express = require('express')
 var app = express()
@@ -22,8 +26,8 @@ const {findOrCreateUser} = require('./dbHelpers')
 sequelize.sync().then(() => console.log('db is ready'))
 const axios = require('axios')
 const callbackUrl = '/login/oauth2/code/github'
-const clientId = '279afec342c1febf3ed3'
-const clientSecret = '47ee95a879c588d0b8198ca734febf75a60b6860'
+
+
 
 var token = "";
 var username;
@@ -43,13 +47,13 @@ app.get('/users', async (req, res) => {
 })*/
 
 app.get('/github-oauth', (req, res) => {
-    res.redirect(`https://github.com/login/oauth/authorize?client_id=${clientId}&type=user_agent&redirect_uri=http://localhost:3000${callbackUrl}`);
+    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=http://localhost:3000${callbackUrl}`);
 })
 
 app.get(callbackUrl, (req, res) => {
     let body = {
-        client_id: clientId,
-        client_secret: clientSecret,
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
         code: req.query.code
     };
     let opts = { headers: { accept: 'application/json' } };
