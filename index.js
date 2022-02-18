@@ -25,6 +25,8 @@ const {findOrCreateUser} = require('./dbHelpers')
 sequelize.sync().then(() => console.log('db is ready'))
 const axios = require('axios')
 const callbackUrl = '/login/oauth2/code/github'
+const devUrl = `http://localhost:${port}`
+const prodUrl = "https://pre-academy-site.herokuapp.com"
 
 
 
@@ -46,7 +48,7 @@ app.get('/users', async (req, res) => {
 })*/
 
 app.get('/github-oauth', (req, res) => {
-    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=http://localhost:3000${callbackUrl}`);
+    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${prodUrl + callbackUrl}`);
 })
 
 app.get(callbackUrl, (req, res) => {
