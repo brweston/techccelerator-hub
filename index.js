@@ -1,14 +1,18 @@
 // LOAD ENVIRONMENT VARIABLES
 require('dotenv').config()
 
+let UN = "nousername"
+let AV = "no_av_url"
+let FN = "bridget yay"
+
 // IMPORTS
 var express = require('express')
 var app = express()
 var path = require('path')
 var bodyParser = require('body-parser')
 let ejs = require('ejs')
-var port = process.env.PORT || 3000
-const { sections, generateBackLink, generateNextLink } = require('./constants');
+var port = process.env.PORT || 8000
+const { sections, generateBackLink, generateNextLink, sectionKeys } = require('./constants');
 const githubApiBase = "https://api.github.com"
 
 var numSubSections = 7;
@@ -29,12 +33,6 @@ const devUrl = `http://localhost:${port}`
 const prodUrl = "https://pre-academy-site.herokuapp.com"
 
 
-
-var token = "";
-var username;
-var imgUrl = "";
-var fullName;
-
 // DATABASE ROUTING
 /*app.post('/users', (req, res) => {
     User.create(req.body).then(() => {
@@ -48,7 +46,7 @@ app.get('/users', async (req, res) => {
 })*/
 
 app.get('/github-oauth', (req, res) => {
-    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${prodUrl + callbackUrl}`);
+    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${devUrl + callbackUrl}`);
 })
 
 app.get(callbackUrl, (req, res) => {
@@ -60,39 +58,23 @@ app.get(callbackUrl, (req, res) => {
     let opts = { headers: { accept: 'application/json' } };
     axios.post(`https://github.com/login/oauth/access_token`, body, opts)
     .then(r => {
-        token = r.data['access_token'];
         const h = {
             'Content-Type': 'application/json',
             'Accept': 'application/vnd.github.v3.raw',
-            'Authorization': `token ${token}`
+            'Authorization': `token ${r.data['access_token']}`
         }
         axios.get(githubApiBase + "/user", {headers: h})
         .then(rr => {
-            //username = rr.data.login
-            var { login, avatar_url, name, email } = rr.data
-            console.log(login)
-            console.log(avatar_url)
-            console.log(name)
-            console.log(email)
-            imgUrl = avatar_url
-            username = login;
-            fullName = name;
+            var { login, avatar_url, name } = rr.data
 
-            const user = findOrCreateUser(username, fullName, imgUrl)
-            /*res.render('index', {
-                section: s.key,
-                sectionInfo: s,
-                subSectionInfo: s.subSections[req.params.page - 1],
-                page: 'intro',
-                sections,
-                percentDone,
-                generateBackLink,
-                generateNextLink,
-                name: username,
-                avatar_url: imgUrl,
-                fullName: user.name,
-                })*/
-                res.redirect('/intro/1')
+            const user = findOrCreateUser(login, name, avatar_url)
+            //process.env.USERNAME = login
+            //process.env.AVATAR_URL = avatar_url
+            //process.env.FULL_NAME = name
+            AV = avatar_url
+            FN = name
+            UN = login
+            res.redirect('/intro/1')
         })
         .catch(e => console.log(e))
     })
@@ -109,9 +91,8 @@ app.get('/users/:id', async (req, res) => {
 
 // ROUTING
 app.get('/', function(req, res, next) {
-    if (token === "") res.render('login')
+    if (/*process.env.*/UN === "unknown") res.render('login')
     res.redirect('/intro/1')
-    //res.render('index', {page: 'intro', fullName})
 })
 
 app.get('/login', (req, res) => {
@@ -119,22 +100,29 @@ app.get('/login', (req, res) => {
 })
 
 sections.forEach(s => {
-    app.get("/" + s.key + "/:page", function(req, res, next) {
-        res.render('index', {
-            section: s.key,
-            sectionInfo: s,
-            subSectionInfo: s.subSections[req.params.page - 1],
-            page: req.params.page,
+    app.get(`/${s.key}/:page`, function(req, res, next) {
+        data = getData(s.key, req.params.page)
+        res.render('index', data)
+    })
+})
+
+function getData(sectionKey, page) {
+    const sectionInfo = sections[sectionKeys.indexOf(sectionKey)]
+    const data = {
+            section: sectionKey,
+            sectionInfo,
+            subSectionInfo: sectionInfo.subSections[page - 1],
+            page,
             sections,
             percentDone,
             generateBackLink,
             generateNextLink,
-            name: username,
-            avatar_url: imgUrl,
-            fullName,
-        })
-    })
-})
+            name: UN,//process.env.USERNAME,
+            avatar_url: AV,//process.env.AVATAR_URL,
+            fullName: FN,//process.env.FULL_NAME,
+        }
+    return data
+}
 
 // START SERVER
 app.listen(port)

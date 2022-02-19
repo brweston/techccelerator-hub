@@ -34,6 +34,8 @@ const generateNextLink = (subSectionInfo, sections, sectionInfo) => {
     return nextLink
 }
 
+const sectionKeys = ['intro', 'setup', 'learn-html', 'learn-css', 'learn-js', 'finish']
+
 const sections = [
     {
         key: 'intro',
@@ -259,4 +261,4 @@ const sections = [
         ]
     }
 ]
-module.exports = { sections, generateBackLink, generateNextLink };
+module.exports = { sections, generateBackLink, generateNextLink, sectionKeys };

@@ -16,9 +16,6 @@ const findOrCreateUser = async function(username, name, avatar_url) {
         where: { username },
         defaults: {name, avatar_url}
     })
-    console.log("HERE:::")
-    console.log(JSON.stringify(user, null, 2))
-    console.log(created)
     return user
 }
 
