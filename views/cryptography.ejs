@@ -1,0 +1,13 @@
+<form action="/encrypt" method="post">
+    <label for="str">Enter string to encrypt:</label><br>
+    <input type="text" value="<%= plain %>" id="plain" name="plain"><br>
+    <label for="lname">Encryption method:</label><br>
+    <select name="method" id="method"></select>
+        <option value="rotate">Rotate letters</option>
+        <option value="md5">md5</option>
+        <option value="sha256">sha256</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+<div><%= encrypted %></div>
