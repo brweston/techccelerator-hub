@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="/css/index.css">
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/dcbd972c7e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <%- include('partials/header', {userData: {name: "lol", avatar_url: "https://no"}, activeTab: "act"}) %>
+        <div id="main">
+            <iframe id="trp-doc" src="https://docs.google.com/document/d/e/2PACX-1vQauHcWio63XZMASOn9gOt1DKCRbv71E-p7ISCyOvR3ck8bZRffN2935JobAg96QQ4b5wJ-dG1QpdqI/pub?embedded=true"></iframe>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

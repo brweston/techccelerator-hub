@@ -28,7 +28,7 @@ html {
     width: 700px;
     min-height: 600px;
     left: 250px;
-    top: 70px;
+    top: 110px;
     padding: 10px;
 }
 
@@ -38,7 +38,7 @@ a, a:hover, a:focus, a:active {
 }
 
 /* SIDEBAR */
-#sidebar {
+#sidebar-completion {
     float: left;
     width: 250px;
     height: 100%;
@@ -149,7 +149,7 @@ i {
 
 /* HEADER */
 #header {
-    height: 50px;
+    height: 100px;
     padding: 5px;
     background-color: #aaa;
 }
@@ -179,7 +179,7 @@ i {
 
 .header-text {
     display: block;
-    height: 20px;
+    height: 50px;
 }
 
 #done-bar {
@@ -202,8 +202,42 @@ i {
     width: 20px;
 }
 
-/* PAGE (SUBSECTION PAGE) */
+/* HEADER NAV */
+.header-nav {
+    height: 50px;
+    border-top: 1px solid black;
+}
 
+.nav-tab {
+    display: inline-block;
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.nav-tab:hover {
+    background: #eee;
+}
+
+.nav-tab .selected {
+    background: #ddd;
+}
+
+/* PAGE (SUBSECTION PAGE) */
 video {
     width: 100%;
+}
+
+/* TECHNICAL REFERENCE PACKAGE */
+#trp-doc {
+    height: 1000px;
+    width: 772px;
+}
+
+/* CURRICULUM */
+#curr-doc {
+    height: 1000px;
+    width: 772px;
 }

@@ -93,23 +93,53 @@ app.get('/users/:id', async (req, res) => {
 // ROUTING
 app.get('/', function(req, res, next) {
     if (/*process.env.*/UN === "unknown") res.render('login')
-    res.redirect('/intro/1')
+    res.redirect('pre-techccelerator/intro/1')
+    /*data = getData('intro', 1)
+        res.render('pre-techccelerator', data)*/
 })
+
+/* app.get('/pre-techccelerator/intro/1', function(req, res, next) {
+    if (UN === "unknown") res.render('login')
+    //res.redirect('pre-techccelerator/intro/1')
+    data = getData('intro', 1)
+        res.render('pre-techccelerator', data)
+}) */
 
 app.get('/login', (req, res) => {
     res.render("login")
 })
 
-sections.forEach(s => {
-    app.get(`/${s.key}/:page`, function(req, res, next) {
-        data = getData(s.key, req.params.page)
-        res.render('index', data)
+/*sections.forEach(s => {
+    app.get(`pre-techccelerator/${s.key}`, function(req, res, next) { ///:page
+        //console.log("SENT REQ to : " + req.params.)
+        data = getData(s.key, 1)//req.params.page)
+        res.render('pre-techccelerator', data)
+    })
+})*/
+
+const sss = ['activities', 'workshops', 'curriculum', 'technical-reference-package']
+sss.forEach(s => {
+    app.get(`/${s}`, (req, res) => {
+        res.render(s, {})
     })
 })
 
 app.get('/cryptography', (req, res) => {
     res.render('cryptography', {plain: "", encrypted: ''})
 })
+
+/* app.get('/activities', (req, res) => {
+    res.render('activities', {})
+})
+app.get('/workshops', (req, res) => {
+    res.render('workshops', {})
+})
+app.get('/curriculum', (req, res) => {
+    res.render('curriculum', {})
+})
+app.get('/technical-reference-package', (req, res) => {
+    res.render('technical-reference-package', {})
+}) */
 
 app.post('/encrypt', (req, res) => {
     let plain = req.body.plain || ""

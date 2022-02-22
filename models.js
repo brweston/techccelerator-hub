@@ -11,6 +11,9 @@ User.init({
     },
     avatar_url: {
         type: DataTypes.STRING
+    },
+    last_pt_completed: {
+        type: DataTypes.STRING
     }
 }, {
     sequelize,
