@@ -11,33 +11,12 @@
 </head>
 <body>
     <div id="container">
-        <div id="header">
-            <div class="header-text">
-                <img src="htulogo.png" height="30px" width="30px">
-                <a href="/"><div class="title">Pre-Techccelerator</div></a>
-                <div class="profile">
-                    <img src="<%= avatar_url %>" height="30px" width="30px">
-                    <div class="login-out"><%= name %></div>
-                </div>
-            </div>
-            <div class="header-nav">
-                <a href="/pre-techccelerator"><div class="nav-tab">Pre-Techccelerator</div></a>
-                <a href="/technical-reference-package"><div class="nav-tab">Technical Reference Package</div></a>
-                <a href="/curriculum"><div class="nav-tab">Curriculum</div></a>
-                <a href="/workshops"><div class="nav-tab">Workshops</div></a>
-                <a href="/activities"><div class="nav-tab">Activities</div></a>
-            </div>
-        </div>
-        <div id="sidebar-completion">
-            <%- include('partials/sidebar-completion', {section, sections, page}) %>
-        </div>
+        <%- include('partials/header', {userData, activeTab}) %>
         <div id="main">
-            <% if (page === "intro") { %>
-                <%- include('partials/intro', {fullName}) %>
-            <% } else { %>
-                <%- include('partials/page', {page, generateBackLink, generateNextLink, sections, sectionInfo, subSectionInfo}) %>
-            <% } %>
+            <%- include('pages/'+activeTab) %>
         </div>
+        
     </div>
+    <%- include('partials/footer') %>
 </body>
 </html>

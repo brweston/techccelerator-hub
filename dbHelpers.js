@@ -1,6 +1,6 @@
 const sequelize = require('./database')
 const {User} = require('./models')
-const { sections } = require('./constants')
+const { sections } = require('./constants/pre-techccelerator-constants')
 
 const getAllUsers = async function() {
     const users = await User.findAll();
