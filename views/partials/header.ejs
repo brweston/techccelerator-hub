@@ -1,5 +1,5 @@
 <div id="header">
-    <div class="header-text">
+    <div class="header-top">
         <img src="htulogo.png" height="30px" width="30px">
         <a href="/curriculum"><div class="title">Techccelerator Hub</div></a>
         <div class="profile">
@@ -8,10 +8,10 @@
         </div>
     </div>
     <div class="header-nav">
-        <a href="/curriculum"><div class="nav-tab">Curriculum</div></a>
-        <a href="/pre-techccelerator"><div class="nav-tab">Pre-Techccelerator</div></a>
-        <a href="/technical-reference-package"><div class="nav-tab">Technical Reference Package</div></a>
-        <a href="/workshops"><div class="nav-tab">Workshops</div></a>
-        <a href="/activities"><div class="nav-tab">Activities</div></a>
+        <% tabData.tabs.forEach(t => { %>
+            <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
+            <% var name = t.replace("-", " ").toUpperCase() %>
+            <a href="/<%= t %>"><div class="nav-tab <%= activeClass %>"><%= name %></div></a>
+        <% }) %>
     </div>
 </div>

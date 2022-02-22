@@ -38,7 +38,7 @@ a, a:hover, a:focus, a:active {
 }
 
 /* SIDEBAR */
-#sidebar-completion {
+#sidebar {
     float: left;
     width: 250px;
     height: 100%;
@@ -177,9 +177,9 @@ i {
     top: 35px;
 }
 
-.header-text {
+.header-top {
     display: block;
-    height: 50px;
+    height: 55px;
 }
 
 #done-bar {
@@ -205,24 +205,29 @@ i {
 /* HEADER NAV */
 .header-nav {
     height: 50px;
-    border-top: 1px solid black;
 }
 
 .nav-tab {
     display: inline-block;
     min-width: 50px;
+    border-radius: 4px 4px 0 0;
     height: 50px;
     line-height: 50px;
     padding-left: 5px;
     padding-right: 5px;
+    background: #bbb;
 }
 
 .nav-tab:hover {
     background: #eee;
 }
 
-.nav-tab .selected {
-    background: #ddd;
+.active-tab {
+    background: white;
+}
+
+.active-tab:hover {
+    background: white;
 }
 
 /* PAGE (SUBSECTION PAGE) */

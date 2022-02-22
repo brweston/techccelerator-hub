@@ -61,4 +61,8 @@ module.exports = async function (app) {
     app.get('/login', (req, res) => {
         res.render("login")
     })
+
+    app.get('/logout', (req, res) => {
+        //need to delete session/env variable? how to make session cookie?
+    })
 }

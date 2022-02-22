@@ -4,8 +4,5 @@
         <source src="<%= subSectionInfo.videoUrl %>" type="video/mp4">
     </video>
 <% } %>
-<% if (subSectionInfo.questions) { %>
-    <%- include('quiz', {questions: subSectionInfo.questions}) %>
-<% } %>
 
 <%- include('nav-buttons', {back: generateBackLink(subSectionInfo, sections, sectionInfo), next: generateNextLink(subSectionInfo, sections, sectionInfo)}) %>

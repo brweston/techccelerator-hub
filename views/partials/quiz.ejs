@@ -1,8 +1,0 @@
-<div class="quiz">
-<div>Check your understanding</div>
-<% questions.forEach(q => { %>
-    <% q.options.forEach((o, v) => { %>
-        <input type="radio" name="opt-<%= v %>" value="Option <%= v %>"><%= o %><br>
-    <% }) %>
-<% }) %>
-</div>

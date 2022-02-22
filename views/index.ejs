@@ -11,9 +11,9 @@
 </head>
 <body>
     <div id="container">
-        <%- include('partials/header', {userData, activeTab}) %>
+        <%- include('partials/header', {userData, tabData}) %>
         <div id="main">
-            <%- include('pages/'+activeTab) %>
+            <%- include('tabs/'+tabData.activeTab, {pageData}) %>
         </div>
         
     </div>

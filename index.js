@@ -29,17 +29,50 @@ sequelize.sync().then(() => console.log('db is ready'))
 /* USER AUTH ROUTES */
 require('./routes/userAuthRoutes')(app)
 
-/* CRYPTO ROUTES (ACTIVITY - CHANGE LATER) */
+/* CRYPTO ROUTES (TODO - MOVE TO ACTIVITY ROUTES) */
 require('./routes/cryptoRoutes')(app)
 
 /* PAGE ROUTES */
 tabs.forEach(t => {
     app.get(`/${t}`, (req, res) => {
-        res.render('index', {userData: {name: "Bridget", avatar_url: "nonelol"},activeTab: t})
+        res.render(
+            'index',
+            {
+                userData: {name: "Bridget", avatar_url: "nonelol"},
+                tabData: {
+                    tabs,
+                    activeTab: t
+                },
+                pageData: getPageData(t)
+            }
+        )
     })
 })
 
-function getData(sectionKey, page) {
+function getPageData(tab) {
+    //TODO: MOVE TO CONSTANTS
+    let data = {}
+    switch (tab) {
+        case "curriculum":
+            data = {}
+            break;
+        case "pre-techccelerator":
+            data = getPreTechcceleratorData('intro', 1)
+            break;
+        case 'technical-reference-package':
+            data = {}
+            break;
+        case "workshops":
+            data = {}
+            break;
+        case "activities":
+            data = {}
+            break;
+    }
+    return data
+}
+
+function getPreTechcceleratorData(sectionKey, page) {
     const sectionInfo = sections[sectionKeys.indexOf(sectionKey)]
     const data = {
             section: sectionKey,

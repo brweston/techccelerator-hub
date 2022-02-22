@@ -12,8 +12,8 @@
 <body>
     <div id="container">
         <%- include('partials/header', {userData: {name: "lolol", avatar_url: "none"}, activeTab: "pt"}) %>
-        <div id="sidebar-completion">
-            <%- include('partials/sidebar-completion', {section, sections, page}) %>
+        <div id="sidebar">
+            <%- include('partials/sidebar', {section, sections, page}) %>
         </div>
         <div id="main">
             <% if (page === "intro") { %>

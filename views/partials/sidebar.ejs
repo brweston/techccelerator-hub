@@ -1,0 +1,13 @@
+<ul>
+    <% pageData.sections.forEach(s => { %>
+        <% var sectionLink = "/" + s.key + "/" + 1; %>
+        <%- include('section', {link: sectionLink, name: s.name, done: false}) %>
+        <% if (pageData.section === s.key) { %>
+            <% s.subSections.forEach((ss, k) => { %>
+                <% var l = "/" + s.key + "/" + (k+1); %>
+                <% var sel = (k === pageData.page - 1); %>
+                <%- include('subsection', {link: l, name: ss.name, done: false, selected: sel}) %>
+            <% }) %>
+        <% } %>
+    <% }) %>
+</ul>
