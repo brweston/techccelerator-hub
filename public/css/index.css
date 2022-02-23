@@ -199,13 +199,21 @@ video {
 }
 
 /* TECHNICAL REFERENCE PACKAGE */
-#trp-doc {
+
+.iframe-container {
+    /* position: absolute;
+    height: 1000px;
+    width: 772px; */
+}
+iframe {
     height: 1000px;
     width: 772px;
 }
 
-/* CURRICULUM */
-#curr-doc {
-    height: 1000px;
-    width: 772px;
+/* FOOTER */
+footer {
+    background: var(--darkest-grey);
+    height: 50px;
+    text-align: center;
+    color: white;
 }
