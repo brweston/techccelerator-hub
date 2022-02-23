@@ -1,2 +1,10 @@
-pre-techccelerator
+
+<link type="text/css" rel="stylesheet" href="/css/pre-techccelerator.css">
 <%- include('../partials/sidebar', {pageData}) %>
+<div class="pre-techccelerator-main">
+    <%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].name %>
+    <video width="320" height="440" controls>
+        <source src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>" type="video/mov">
+    </video>
+    <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageData.sIndex, pageData.ssIndex)}) %>
+</div>

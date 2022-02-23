@@ -1,7 +1,11 @@
 /* MAIN */
 :root {
+    --orange: #FF8C00;
+    --dark-grey: #242526;
+    --grey: #3A3B3C;
+    --darkest-grey: #18191A;
     --green: #009900;
-    --light-green: #A4D1A2;
+    --med-grey: #4d4d4d;
 }
 
 * {
@@ -23,13 +27,22 @@ html {
     height: 100%;
 }
 
-#main {
+#page {
     position: absolute;
-    width: 700px;
-    min-height: 600px;
-    left: 250px;
+    width: 100%;
+    padding-top: 20px;
+    height: 100%;
     top: 110px;
-    padding: 10px;
+    background: var(--med-grey);
+}
+
+.pre-techccelerator-main {
+    position: absolute;
+    left: 270px;
+    top: 20px;
+    width: 700px;
+    min-height: 550px;
+    display: inline-block;
 }
 
 a, a:hover, a:focus, a:active {
@@ -39,9 +52,9 @@ a, a:hover, a:focus, a:active {
 
 /* SIDEBAR */
 #sidebar {
-    float: left;
     width: 250px;
     height: 100%;
+    display: inline-block;
 }
 
 ul {
@@ -52,17 +65,19 @@ ul {
 
 li.section {
     list-style: none;
-    border-bottom: 1px solid white;
-    background-color: #ccc;
+    border-bottom: 1px solid var(--med-grey);
+    background-color: var(--darkest-grey);
     padding-left: 30px;
     line-height: 60px;
+    color: white;
 }
 
 li.sub-section {
     list-style: none;
-    border-right: 1px solid #aaa;
-    background-color: #eee;
-    border-bottom: 1px solid white;
+    border-right: 1px solid var(--med-grey);
+    background-color: var(--dark-grey);
+    color: white;
+    border-bottom: 1px solid var(--med-grey);
     padding-left: 30px;
     line-height: 60px;
 }
@@ -72,9 +87,10 @@ li.sub-section {
 }
 
 li.selected {
-    background-color: white;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
+    background-color: var(--med-grey);
+    color: white;
+    border-top: 1px solid var(--med-grey);
+    border-bottom: 1px solid var(--med-grey);
     border-right: none;
     /*border-left: 15px solid #aaa;*/
 }
@@ -96,7 +112,8 @@ i {
 
 /* NAV BUTTONS */
 .nav-btn {
-    background-color: var(--green);
+    background-color: var(--darkest-grey);
+    color: white;
     height: 50px;
     width: 80px;
     text-align: center;
@@ -106,7 +123,7 @@ i {
 
 .nav-btn-disabled {
     cursor: not-allowed;
-    background-color: var(--light-green);
+    opacity: 0.5;
     color: #aaa;
 }
 
@@ -123,35 +140,12 @@ i {
     float: right;
 }
 
-/* GAME */
-#game {
-    width: 500px;
-    height: 200px;
-    border: 1px solid black;
-}
-
-#enemy {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    position: relative;
-    top: 150px;
-}
-
-#block {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    position: absolute;
-    top: 130px;
-    left: 480px;
-}
-
 /* HEADER */
 #header {
     height: 100px;
     padding: 5px;
-    background-color: #aaa;
+    background-color: var(--darkest-grey);
+    color: white;
 }
 
 .title {
@@ -165,41 +159,9 @@ i {
     float: right;
 }
 
-.progress-saved {
-    float: right;
-}
-
-#progress {
-    padding: 0px 5px 0px 5px;
-    margin: none;
-    display: block;
-    position: absolute;
-    top: 35px;
-}
-
 .header-top {
     display: block;
     height: 55px;
-}
-
-#done-bar {
-    border-radius: 4px 0px 0px 4px;
-    background-color: var(--green);
-    width: calc((1400px/100) * var(--percent));
-    height: 10px;
-    display: inline-block;
-}
-
-#empty-bar {
-    border-radius: 0px 4px 4px 0px;
-    background-color: white;
-    height: 10px;
-    display: inline-block;
-    width: calc((1400px/100) * calc(100 - var(--percent)));
-}
-.percent {
-    float: right;
-    width: 20px;
 }
 
 /* HEADER NAV */
@@ -209,25 +171,26 @@ i {
 
 .nav-tab {
     display: inline-block;
+    color: white;
     min-width: 50px;
     border-radius: 4px 4px 0 0;
     height: 50px;
     line-height: 50px;
     padding-left: 5px;
     padding-right: 5px;
-    background: #bbb;
+    background: var(--darkest-grey);
 }
 
 .nav-tab:hover {
-    background: #eee;
+    background: var(--grey);
 }
 
 .active-tab {
-    background: white;
+    background: var(--med-grey);
 }
 
 .active-tab:hover {
-    background: white;
+    background: var(--med-grey);
 }
 
 /* PAGE (SUBSECTION PAGE) */

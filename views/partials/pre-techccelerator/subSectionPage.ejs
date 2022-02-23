@@ -1,8 +1,0 @@
-<h3><%= subSectionInfo.name %></h3>
-<% if (subSectionInfo.videoUrl) { %>
-    <video  height="500" controls>
-        <source src="<%= subSectionInfo.videoUrl %>" type="video/mp4">
-    </video>
-<% } %>
-
-<%- include('nav-buttons', {back: generateBackLink(subSectionInfo, sections, sectionInfo), next: generateNextLink(subSectionInfo, sections, sectionInfo)}) %>

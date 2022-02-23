@@ -12,7 +12,7 @@ var path = require('path')
 var bodyParser = require('body-parser')
 let ejs = require('ejs')
 var port = process.env.PORT || 8000
-const { sections, generateBackLink, generateNextLink, sectionKeys } = require('./constants/pre-techccelerator-constants');
+const { sections, getBackKey, getNextKey, sectionKeys } = require('./constants/pre-techccelerator-constants');
 const { tabs } = require('./constants/constants')
 
 // APP SETUP
@@ -49,6 +49,23 @@ tabs.forEach(t => {
     })
 })
 
+/* PRE TECHCCELERATOR ROUTES */
+app.get('/pre-techccelerator/:s/:ss', (req, res) => {
+    //s and ss are shifted by +1 to start at 1 in urls
+    const {s, ss } = req.params
+    const pageData = getPreTechcceleratorPageData(s-1, ss-1)
+    res.render('index',
+        {
+            userData: {name: "Bridget", avatar_url: "nonelol"},
+            tabData: {
+                tabs,
+                activeTab: 'pre-techccelerator'
+            },
+            pageData
+        }
+    )
+})
+
 function getPageData(tab) {
     //TODO: MOVE TO CONSTANTS
     let data = {}
@@ -57,7 +74,7 @@ function getPageData(tab) {
             data = {}
             break;
         case "pre-techccelerator":
-            data = getPreTechcceleratorData('intro', 1)
+            data = getPreTechcceleratorPageData(0, 0)
             break;
         case 'technical-reference-package':
             data = {}
@@ -72,20 +89,14 @@ function getPageData(tab) {
     return data
 }
 
-function getPreTechcceleratorData(sectionKey, page) {
-    const sectionInfo = sections[sectionKeys.indexOf(sectionKey)]
+function getPreTechcceleratorPageData(s, ss) {
     const data = {
-            section: sectionKey,
-            sectionInfo,
-            subSectionInfo: sectionInfo.subSections[page - 1],
-            page,
-            sections,
-            generateBackLink,
-            generateNextLink,
-            name: UN,//process.env.USERNAME,
-            avatar_url: AV,//process.env.AVATAR_URL,
-            fullName: FN,//process.env.FULL_NAME,
-        }
+        sIndex: s,
+        ssIndex: ss,
+        sections,
+        getBackKey,
+        getNextKey,
+    }
     return data
 }
 

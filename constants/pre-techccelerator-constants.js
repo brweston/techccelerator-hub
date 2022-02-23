@@ -1,38 +1,36 @@
-const videoUrl = "../../codevid.mov"
+const videoUrl = "../../public/codevid.mov"
 
-const generateBackLink = (subSectionInfo, sections, sectionInfo) => {
-    var s = sectionInfo.subSections
-    var i = s.indexOf(subSectionInfo)
-    var ss = sections.indexOf(sectionInfo)
-    var backLink = "/" + sectionInfo.key + "/" + i.toString()
-    if (i === 0) {
-        if (ss === 0) {
-            backLink = "/"
-        }
-        else {
-            var lastSection = sections[ss - 1]
-            backLink = "/" + lastSection.key + "/" + (lastSection.subSections.length).toString()
+//s and ss start at 0 here
+const getBackKey = (s, ss) => {
+    let bs = s + 1
+    let bss = ss + 1
+    if (ss === 0) {
+        if (s > 0) {
+            bs -= 1
+            bss = sections[bs].subSections.length
         }
     }
-    return backLink
+    else {
+        bss -= 1
+    }
+    return '/pre-techccelerator/' + bs + '/' + bss
 }
-
-const generateNextLink = (subSectionInfo, sections, sectionInfo) => {
-    var s = sectionInfo.subSections
-    var i = s.indexOf(subSectionInfo)
-    var ss = sections.indexOf(sectionInfo)
-    var nextLink = "/" + sectionInfo.key + "/" + (i + 2).toString()
-    if (i === s.length - 1) {
-        if (ss === sections.length - 1) {
-            nextLink = "/"
-        }
-        else {
-            var nextSection = sections[ss + 1]
-            nextLink = "/" + nextSection.key + "/1"
+//s and ss start at 0 here
+const getNextKey = (s, ss) => {
+    let ns = s + 1
+    let nss = ss + 1
+    if (ss === sections[s].subSections.length - 1) {
+        if (s < sections.length - 1) {
+            ns += 1
+            nss = 1
         }
     }
-    return nextLink
+    else {
+        nss += 1
+    }
+    return '/pre-techccelerator/' + ns + '/' + nss
 }
+
 
 const sectionKeys = ['intro', 'setup', 'learn-html', 'learn-css', 'learn-js', 'finish']
 
@@ -201,4 +199,4 @@ const sections = [
         ]
     }
 ]
-module.exports = { sections, generateBackLink, generateNextLink, sectionKeys };
+module.exports = { sections, getBackKey, getNextKey, sectionKeys };
