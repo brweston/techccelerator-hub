@@ -10,7 +10,7 @@ let ejs = require('ejs')
 var port = process.env.PORT || 8000
 const { sections, getBackKey, getNextKey, sectionKeys } = require('./constants/pre-techccelerator-constants');
 const { tabs } = require('./constants/constants')
-const { startDB } = require('./dbHelpers')
+const { startDB } = require('./helpers/dbHelpers')
 
 startDB()
 

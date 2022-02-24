@@ -5,18 +5,10 @@ const devUrl = `http://localhost:${port}`
 const prodUrl = "https://pre-academy-site.herokuapp.com"
 const githubApiBase = "https://api.github.com"
 
-const { addUser, getUser, getAllUsers } = require('../dbHelpers')
+const { addUser, getUser, getAllUsers } = require('../helpers/dbHelpers')
+const { handleLogin } = require('../helpers/userAuthHelpers')
 
 module.exports = async function (app) {
-    app.get('/test', (req, res) => {
-        //let user = getUser("brbrbr")
-        let users = getUser("brbrbr", test)
-    })
-
-    function test(user) {
-        console.log("HERE:::")
-        console.log(user)
-    }
     app.get('/github-oauth', (req, res) => {
         res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${devUrl + callbackUrl}`);
     })
@@ -39,9 +31,12 @@ module.exports = async function (app) {
             .then(rr => {
                 var { login, avatar_url, name } = rr.data
 
-                let user = getUser(login)
-                //if (!user)const user = addUser(login, name, avatar_url)
-                res.send(user)
+                handleLogin(login, avatar_url, name, (user) => {
+                    //TODO: Add user data to env variables
+                    console.log("Got user! " + user.username)
+                    res.redirect('/activities')
+                })
+
             })
             .catch(e => console.log(e))
         })
