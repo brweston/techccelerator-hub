@@ -5,15 +5,18 @@ const devUrl = `http://localhost:${port}`
 const prodUrl = "https://pre-academy-site.herokuapp.com"
 const githubApiBase = "https://api.github.com"
 
-const sequelize = require('../database')
-const {User} = require('../models')
-const {findOrCreateUser} = require('../dbHelpers')
-
-let UN = "nousername"
-let AV = "no_av_url"
-let FN = "bridget yay"
+const { addUser, getUser, getAllUsers } = require('../dbHelpers')
 
 module.exports = async function (app) {
+    app.get('/test', (req, res) => {
+        //let user = getUser("brbrbr")
+        let users = getUser("brbrbr", test)
+    })
+
+    function test(user) {
+        console.log("HERE:::")
+        console.log(user)
+    }
     app.get('/github-oauth', (req, res) => {
         res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${devUrl + callbackUrl}`);
     })
@@ -36,14 +39,9 @@ module.exports = async function (app) {
             .then(rr => {
                 var { login, avatar_url, name } = rr.data
 
-                const user = findOrCreateUser(login, name, avatar_url)
-                //process.env.USERNAME = login
-                //process.env.AVATAR_URL = avatar_url
-                //process.env.FULL_NAME = name
-                AV = avatar_url
-                FN = name
-                UN = login
-                res.redirect('/intro/1')
+                let user = getUser(login)
+                //if (!user)const user = addUser(login, name, avatar_url)
+                res.send(user)
             })
             .catch(e => console.log(e))
         })
@@ -52,7 +50,7 @@ module.exports = async function (app) {
         });
     });
 
-    app.get('/users/:id', async (req, res) => {
+    app.get('/users/:username', async (req, res) => {
         const requestedId = req.params.id;
         const user = await User.findOne({ where: {id: requestedId}})
         res.send(user.username)

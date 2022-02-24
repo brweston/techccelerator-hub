@@ -1,10 +1,6 @@
 // LOAD ENVIRONMENT VARIABLES
 require('dotenv').config()
 
-let UN = "nousername"
-let AV = "no_av_url"
-let FN = "bridget yay"
-
 // IMPORTS
 var express = require('express')
 var app = express()
@@ -14,16 +10,15 @@ let ejs = require('ejs')
 var port = process.env.PORT || 8000
 const { sections, getBackKey, getNextKey, sectionKeys } = require('./constants/pre-techccelerator-constants');
 const { tabs } = require('./constants/constants')
+const { startDB } = require('./dbHelpers')
+
+startDB()
 
 // APP SETUP
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "/public")))
 app.set('view engine', 'ejs')
-const sequelize = require('./database')
-const {User} = require('./models')
-const {findOrCreateUser} = require('./dbHelpers')
-sequelize.sync().then(() => console.log('db is ready'))
 
 
 /* USER AUTH ROUTES */
