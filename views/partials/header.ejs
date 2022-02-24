@@ -10,7 +10,7 @@
     <div class="header-nav">
         <% tabData.tabs.forEach(t => { %>
             <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
-            <a href="/<%= t %>"><div class="nav-tab <%= activeClass %>"><%= t.toUpperCase() %></div></a>
+            <a href="/<%= t %>"><div class="nav-tab <%= activeClass %>"><%= t.replace("-", " ") %></div></a>
         <% }) %>
     </div>
 </div>
