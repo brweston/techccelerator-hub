@@ -18,6 +18,14 @@ const sections = [
                 videoUrl,
             },
             {
+                name: "Setup Github Auth",
+                videoUrl,
+            },
+            {
+                name: "Install VSCode",
+                videoUrl,
+            },
+            {
                 name: "Create project",
                 videoUrl,
 
@@ -33,23 +41,15 @@ const sections = [
         name: "HTML Tutorial",
         subSections: [
             {
-                name: "What is HTML?",
+                name: "Basics of HTML",
                 videoUrl,
             },
             {
-                name: "Parts of an HTML file",
+                name: "HTML tags",
                 videoUrl,
             },
             {
-                name: "Important tags",
-                videoUrl,
-            },
-            {
-                name: "Properties of tags",
-                videoUrl,
-            },
-            {
-                name: "Add HTML to your game",
+                name: "Add HTML to your website",
                 videoUrl,
             },
         ]
@@ -58,11 +58,7 @@ const sections = [
         name: "CSS Tutorial",
         subSections: [
             {
-                name: "What is CSS?",
-                videoUrl,
-            },
-            {
-                name: "Basic syntax",
+                name: "Basics of CSS",
                 videoUrl,
             },
             {
@@ -70,15 +66,11 @@ const sections = [
                 videoUrl,
             },
             {
-                name: "The Box Method",
+                name: "Advanced styling",
                 videoUrl,
             },
             {
-                name: "Dynamic styling",
-                videoUrl,
-            },
-            {
-                name: "Add CSS to your game",
+                name: "Add CSS to your website",
                 videoUrl,
             },
         ]
@@ -95,19 +87,7 @@ const sections = [
                 videoUrl,
             },
             {
-                name: "Strings",
-                videoUrl,
-            },
-            {
-                name: "Arrays",
-                videoUrl,
-            },
-            {
-                name: "Objects",
-                videoUrl,
-            },
-            {
-                name: "Conditional statements",
+                name: "Conditionals",
                 videoUrl,
             },
             {
@@ -115,11 +95,11 @@ const sections = [
                 videoUrl,
             },
             {
-                name: "DOM functions",
+                name: "Modifying the DOM",
                 videoUrl,
             },
             {
-                name: "Add JS to your game",
+                name: "Add JS to your website",
                 videoUrl,
             },
         ]
@@ -129,6 +109,10 @@ const sections = [
         subSections: [
             {
                 name: "Upload to Github",
+                videoUrl,
+            },
+            {
+                name: "Final reminders",
                 videoUrl,
             },
         ]

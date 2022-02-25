@@ -12,13 +12,10 @@
     <script src="https://kit.fontawesome.com/dcbd972c7e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="container">
-        <%- include('partials/header', {userData, tabData}) %>
-        <div id="page">
-            <%- include('tabs/'+tabData.activeTab, {pageData}) %>
-        </div>
-        
-    </div>
+    <%- include('partials/header', {userData, tabData}) %>
+    <main>
+        <%- include('tabs/'+tabData.activeTab, {pageData}) %>
+    </main>
     <%- include('partials/footer') %>
 </body>
 </html>

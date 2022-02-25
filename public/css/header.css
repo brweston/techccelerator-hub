@@ -1,53 +1,54 @@
 /* HEADER */
 :root {
-    --top-height: 45px;
-    --nav-height: 30px;
+    --header-height: 70px;
+    --nav-height: 50px;
     --green: #009900;
     --med-grey: #4d4d4d;
-    --header-height: var(--nav-height) + var(--top-height);
+    --total-height: calc(var(--nav-height) + var(--header-height));
+    --new: lightpink;
 }
 
 
 #header {
-    height: calc(var(--top-height) + var(--nav-height));
+    height: var(--header-height);
     padding: 5px 20px 5px 20px;
     background-color: var(--darkest-grey);
     width: 100%;
     color: white;
-/*     position: fixed;
+    position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden; */
 }
-.header-left {
+#left {
     line-height: 40px;
+    width: 85%;
+    height: 100%;
     float: left;
 }
 
-.header-left img {
+#left img {
     display: inline-block;
     height: 20px;
     width: 67px;
 }
-.header-left .title {
+#left .title {
     display: inline-block;
     font-size: var(--large-font);
 }
-.header-right {
-    min-width: 55px;
-    min-height: 55px;
+#right {
+    width: 10%;
     float: right;
     display: flex;
     flex-direction: column;
     text-align: center;
+    height: 80%;
+    border: 2px solid blue;
 }
 
-.header-right img {
+#right img {
     margin: 0 auto;
     display: block;
 }
-.header-right .name {
+#right .name {
     font-size: var(--med-font);
     display: block;
 }
@@ -56,17 +57,16 @@
     font-size: 12px;
 }
 
-.header-top {
-    display: block;
-    height: var(--top-height);
-}
-
 /* HEADER NAV */
-.header-nav {
+#nav {
     height: var(--nav-height);
+    width: 100%;
+    background: var(--darkest-grey);
+    position: absolute;
+    top: var(--header-height);
 }
 
-.nav-tab {
+.tab {
     display: inline-block;
     color: var(--med-grey);
     min-width: 50px;
@@ -80,7 +80,7 @@
     background: var(--dark-grey);
 }
 
-.nav-tab:hover {
+.tab:hover {
     background: var(--grey);
 }
 

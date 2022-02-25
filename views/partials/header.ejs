@@ -1,19 +1,17 @@
 <div id="header">
-    <div class="header-top">
-        <div class="header-left">
-            <img src="htulogo.png" height="30px" width="30px">
-            <a href="/curriculum"><div class="title">Techccelerator Hub</div></a>
-        </div>
-        <div class="header-right">
-            <img src="<%= userData.avatar_url %>" height="30px" width="30px">
-            <div class="name"><%= userData.name.split(" ")[0] %></div>
-            <a href="/logout"><div class="logout">Logout</div></a>
-        </div>
+    <div id="left">
+        <img src="htulogo.png" height="30px" width="30px">
+        <a href="/curriculum"><div class="title">Techccelerator Hub</div></a>
     </div>
-    <div class="header-nav">
-        <% tabData.tabs.forEach(t => { %>
-            <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
-            <a href="/<%= t %>"><div class="nav-tab <%= activeClass %>"><%= t.replace("-", " ") %></div></a>
-        <% }) %>
+    <div id="right">
+        <img src="<%= userData.avatar_url %>" height="30px" width="30px">
+        <div class="name"><%= userData.name.split(" ")[0] %></div>
+        <a href="/logout"><div class="logout">Logout</div></a>
     </div>
+</div>
+<div id="nav">
+    <% tabData.tabs.forEach(t => { %>
+        <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
+        <a href="/<%= t %>"><div class="tab <%= activeClass %>"><%= t.replace("-", " ") %></div></a>
+    <% }) %>
 </div>

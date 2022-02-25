@@ -56,7 +56,6 @@ tabs.forEach(t => {
         )
     })
 })
-
 /* PRE TECHCCELERATOR ROUTES */
 app.get('/pre-techccelerator/:s/:ss', (req, res) => {
     ensureLoggedIn(res)

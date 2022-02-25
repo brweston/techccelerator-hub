@@ -8,6 +8,8 @@ const githubApiBase = "https://api.github.com"
 const { addUser, getUser, getAllUsers } = require('../helpers/dbHelpers')
 const { handleLogin } = require('../helpers/userAuthHelpers')
 
+const { codes } = require('../constants/constants')
+
 module.exports = async function (app) {
     app.get('/github-oauth', (req, res) => {
         const uri = process.env.NODE_ENV === "production" ? prodUrl + callbackUrl : devUrl + callbackUrl
@@ -25,6 +27,8 @@ module.exports = async function (app) {
         .then(r => {
             const token = r.data['access_token']
             process.env.GH_TOKEN = token
+            console.log("TOKEN:::")
+            console.log(token)
             const h = {
                 'Content-Type': 'application/json',
                 'Accept': 'application/vnd.github.v3.raw',
@@ -33,15 +37,29 @@ module.exports = async function (app) {
             axios.get(githubApiBase + "/user", {headers: h})
             .then(rr => {
                 var { login, avatar_url, name } = rr.data
+                const username = login //gh named it login which is confusing
 
-                handleLogin(login, name, (user) => {
-                    //TODO: Add user data to env variables
-                    console.log("Got user! " + JSON.stringify(user))
+                getUser(username, (user) => {
+                    if (!user) {
+                        res.render('register', {username, name, avatar_url})
+                    }
+                    else {
+                        process.env.USERNAME = user.username
+                        process.env.NAME = user.full_name
+                        process.env.AVATAR_URL = avatar_url
+                        res.redirect('/home')
+
+                    }
+                })
+
+                /* handleLogin(login, name, (user) => {
+                    //console.log("Got user! " + JSON.stringify(user))
+                    if (!user)
                     process.env.USERNAME = user.username
                     process.env.NAME = user.full_name
                     process.env.AVATAR_URL = avatar_url
-                    res.redirect('/activities')
-                })
+                    res.redirect('/home')
+                }) */
 
             })
             .catch(e => console.log(e))
@@ -59,7 +77,29 @@ module.exports = async function (app) {
         process.env.USERNAME = ""
         process.env.NAME = ""
         process.env.AVATAR_URL = ""
-        //TODO DELETE GH TOKEN USING API (STILL AUTHED TO US) process.env.GH_TOKEN
+        /* let b = { access_token: process.env.GH_TOKEN,
+        client_id: process.env.CLIENT_ID}
+        let opts = { headers: { accept: 'application/json' } };
+        axios.delete(`${githubApiBase}/applications/{client_id}/token`, {data: b}, opts).then(r => {
+            console.log("success")
+        }).catch(e => console.log(e)) */
+        process.env.GH_TOKEN = ""
         res.redirect('/login')
+    })
+
+    app.post('/register', (req, res) => {
+        //TODO verify token
+        const { username, name, code, avatar_url} = req.body
+
+        if (codes.includes(code)) {
+            addUser(username, name, 0)
+            process.env.USERNAME = username
+            process.env.NAME = name
+            process.env.AVATAR_URL = avatar_url
+            res.redirect('/home')
+        } else{
+            res.render('not-authorized')
+        }
+        
     })
 }

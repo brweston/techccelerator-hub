@@ -7,4 +7,8 @@ const tabs = [
     "activities"
 ]
 
-module.exports = {tabs}
+const codes = [
+    "1234"
+]
+
+module.exports = {tabs, codes}

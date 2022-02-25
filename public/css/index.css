@@ -31,23 +31,15 @@ html, body {
     overflow: hidden;
 }
 
-#container {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-}
 
 
-#page {
+main {
     position: absolute;
     width: 100%;
-    height: calc(100% - var(--footer-height) - var(--header-height));
-    top: var(--header-height);
+    top: var(--total-height);
+    height: calc(100% - var(--footer-height) - var(--total-height));
     background: var(--med-grey);
+    left: 0;
 }
 
 .page-with-sidebar-main {

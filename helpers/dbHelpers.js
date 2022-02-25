@@ -48,4 +48,11 @@ function closeDB() {
     })
 }
 
+function deleteUser(username) {
+    let q = `DELETE FROM users WHERE username="${username}"`
+    db.all(q, (err) => {
+        if (err) return console.error(err.message)
+    })
+}
+
 module.exports = { getUser, addUser, startDB, getAllUsers }
