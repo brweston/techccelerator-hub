@@ -1,13 +1,13 @@
 <div id="sidebar">
     <ul>
         <% pageData.sections.forEach((s, j) => { %>
-            <% var sectionLink = `/pre-techccelerator/${j + 1}/${1}` %>
-            <%- include('section', {link: sectionLink, name: s.name, done: false}) %>
+            <% var sectionLink = `/${pageKey}/${j + 1}/${1}` %>
+            <%- include('section', {link: sectionLink, name: s.name}) %>
             <% if (pageData.sIndex === j) { %>
                 <% s.subSections.forEach((ss, k) => { %>
-                    <% var l = `/pre-techccelerator/${j+1}/${k+1}` %>
+                    <% var l = `/${pageKey}/${j+1}/${k+1}` %>
                     <% var sel = (k === pageData.ssIndex); %>
-                    <%- include('subsection', {link: l, name: ss.name, done: false, selected: sel}) %>
+                    <%- include('subsection', {link: l, name: ss.name, done: false, selected: sel, showCheckboxes}) %>
                 <% }) %>
             <% } %>
         <% }) %>

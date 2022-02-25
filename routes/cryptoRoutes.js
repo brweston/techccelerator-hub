@@ -1,7 +1,15 @@
 const crypto = require('crypto')
+
+function ensureLoggedIn(res) {
+    if (!(process.env.USERNAME && process.env.NAME && process.env.AVATAR_URL)) {
+        res.redirect('/login')
+    }
+}
+
 module.exports = async function (app) {
     app.get('/cryptography', (req, res) => {
-        res.render('cryptography', {plain: "", encrypted: ''})
+        ensureLoggedIn(res)
+        res.render('workshops/cryptography', {plain: "", encrypted: ''})
     })
 
     app.post('/encrypt', (req, res) => {
@@ -11,6 +19,6 @@ module.exports = async function (app) {
             const salt = crypto.randomBytes(16).toString('hex')
             encrypted = crypto.pbkdf2Sync(plain, salt, 1000, 64, `sha512`).toString(`hex`)
         }
-        res.render('cryptography', {plain, encrypted})
+        res.render('workshops/cryptography', {plain, encrypted})
     })
 }

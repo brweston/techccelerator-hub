@@ -31,12 +31,13 @@ html {
     position: absolute;
     width: 100%;
     padding-top: 20px;
+    padding-bottom: 20px;
     height: 100%;
     top: 110px;
     background: var(--med-grey);
 }
 
-.pre-techccelerator-main {
+.page-with-sidebar-main {
     position: absolute;
     left: 270px;
     top: 20px;
@@ -79,7 +80,8 @@ li.sub-section {
     color: white;
     border-bottom: 1px solid var(--med-grey);
     padding-left: 30px;
-    line-height: 60px;
+    line-height: 40px;
+    height: 40px;
 }
 
 .section,.sub-section {
@@ -140,80 +142,31 @@ i {
     float: right;
 }
 
-/* HEADER */
-#header {
-    height: 100px;
-    padding: 5px;
-    background-color: var(--darkest-grey);
-    color: white;
-}
-
-.title {
-    min-width: 250px;
-    font-size: 25px;
-    float: left;
-}
-
-.profile {
-    width: 50px;
-    float: right;
-}
-
-.header-top {
-    display: block;
-    height: 55px;
-}
-
-/* HEADER NAV */
-.header-nav {
-    height: 50px;
-}
-
-.nav-tab {
-    display: inline-block;
-    color: white;
-    min-width: 50px;
-    border-radius: 4px 4px 0 0;
-    height: 50px;
-    line-height: 50px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: var(--darkest-grey);
-}
-
-.nav-tab:hover {
-    background: var(--grey);
-}
-
-.active-tab {
-    background: var(--med-grey);
-}
-
-.active-tab:hover {
-    background: var(--med-grey);
-}
-
 /* PAGE (SUBSECTION PAGE) */
 video {
     width: 100%;
 }
 
 /* TECHNICAL REFERENCE PACKAGE */
-
 .iframe-container {
-    /* position: absolute;
-    height: 1000px;
-    width: 772px; */
+    width:100%;
+    display: flex;
+    justify-content: center;
 }
 iframe {
-    height: 1000px;
-    width: 772px;
+    position: absolute;
+    height: 90%;
+    width: 50%;
 }
 
 /* FOOTER */
 footer {
-    background: var(--darkest-grey);
     height: 50px;
+    background: var(--darkest-grey);
+    line-height: 50px;
     text-align: center;
     color: white;
+    position:fixed;
+    bottom:0;
+    width: 100%;
 }

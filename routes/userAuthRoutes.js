@@ -22,18 +22,23 @@ module.exports = async function (app) {
         let opts = { headers: { accept: 'application/json' } };
         axios.post(`https://github.com/login/oauth/access_token`, body, opts)
         .then(r => {
+            const token = r.data['access_token']
+            process.env.GH_TOKEN = token
             const h = {
                 'Content-Type': 'application/json',
                 'Accept': 'application/vnd.github.v3.raw',
-                'Authorization': `token ${r.data['access_token']}`
+                'Authorization': `token ${token}`
             }
             axios.get(githubApiBase + "/user", {headers: h})
             .then(rr => {
                 var { login, avatar_url, name } = rr.data
 
-                handleLogin(login, avatar_url, name, (user) => {
+                handleLogin(login, name, (user) => {
                     //TODO: Add user data to env variables
-                    console.log("Got user! " + user.username)
+                    console.log("Got user! " + JSON.stringify(user))
+                    process.env.USERNAME = user.username
+                    process.env.NAME = user.full_name
+                    process.env.AVATAR_URL = avatar_url
                     res.redirect('/activities')
                 })
 
@@ -45,17 +50,15 @@ module.exports = async function (app) {
         });
     });
 
-    app.get('/users/:username', async (req, res) => {
-        const requestedId = req.params.id;
-        const user = await User.findOne({ where: {id: requestedId}})
-        res.send(user.username)
-    })
-
     app.get('/login', (req, res) => {
         res.render("login")
     })
 
     app.get('/logout', (req, res) => {
-        //need to delete session/env variable? how to make session cookie?
+        process.env.USERNAME = ""
+        process.env.NAME = ""
+        process.env.AVATAR_URL = ""
+        //TODO DELETE GH TOKEN USING API (STILL AUTHED TO US) process.env.GH_TOKEN
+        res.redirect('/login')
     })
 }

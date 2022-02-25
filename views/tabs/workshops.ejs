@@ -1,1 +1,5 @@
-Hello workshoops
+<%- include('../partials/sidebar', {pageData, pageKey: 'workshops', showCheckboxes: false}) %>
+
+<div class="page-with-sidebar-main">
+    <%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].name %>
+</div>

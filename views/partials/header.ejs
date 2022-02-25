@@ -1,10 +1,13 @@
 <div id="header">
     <div class="header-top">
-        <img src="htulogo.png" height="30px" width="30px">
-        <a href="/curriculum"><div class="title">Techccelerator Hub</div></a>
-        <div class="profile">
+        <div class="header-left">
+            <img src="htulogo.png" height="30px" width="30px">
+            <a href="/curriculum"><div class="title">Techccelerator Hub</div></a>
+        </div>
+        <div class="header-right">
             <img src="<%= userData.avatar_url %>" height="30px" width="30px">
-            <div class="login-out"><%= userData.name %></div>
+            <div class="name"><%= userData.name.split(" ")[0] %></div>
+            <a href="/logout"><div class="logout">Logout</div></a>
         </div>
     </div>
     <div class="header-nav">

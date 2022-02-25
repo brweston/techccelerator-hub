@@ -1,10 +1,9 @@
-
-<link type="text/css" rel="stylesheet" href="/css/pre-techccelerator.css">
-<%- include('../partials/sidebar', {pageData}) %>
-<div class="pre-techccelerator-main">
+<% var pageKey = 'pre-techccelerator' %>
+<%- include('../partials/sidebar', {pageData, pageKey, showCheckboxes: true }) %>
+<div class="page-with-sidebar-main">
     <%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].name %>
     <video width="320" height="440" controls>
         <source src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>" type="video/mov">
     </video>
-    <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageData.sIndex, pageData.ssIndex)}) %>
+    <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
 </div>
