@@ -1,6 +1,4 @@
-
-
-.container {
+#container {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -17,43 +15,43 @@
     align-items: center;
 }
 
-* {
-    font-family: Verdana, serif;
+img {
+    height: 60px;
+    width: 60px;
+}
+
+.name {
+    font-size: var(--med-font);
 }
 
 .title {
     font-size: var(--large-font);
-    background: var(--grey);
-    width: 90%;
-    height: 10%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.description {
-    background: var(--grey);
-    height:65%;
-    width: 90%;
-    font-size: var(--med-font);
-    margin-top: 20px;
-    margin-bottom: 35px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.login-btn {
     background: var(--med-grey);
-    height: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 90%;
-    text-align: center;
-    border-radius: 2px;
-    color: white;
-    font-size: var(--large-font);
     margin-left: auto;
-
     margin-right: auto;
 }
 
-a {
-    text-decoration: none;
+.message {
+    font-size: var(--med-font);
+    background: var(--med-grey);
+    margin-bottom: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.code {
+    height: 30px;
+    width: 60%;
+    padding-left: 10px;
+    font-size: var(--med-font);
+}
+
+.btn {
+    height: 35px;
+    font-size: var(--med-font);
+    width: 30%;
 }

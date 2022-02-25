@@ -102,4 +102,7 @@ module.exports = async function (app) {
         }
         
     })
+    app.get('/register', (req, res) => {
+        res.render('register', {username: "brweston", avatar_url: "some", name: "Bridget Weston"})
+    })
 }

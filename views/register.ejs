@@ -1,8 +1,30 @@
-<form method="post" action="/register">
-    <input name="username" value="<%= username %>">
-    <input name="name" value="<%= name %>">
-    <input name="avatar_url" value="<%= avatar_url %>">
-    <label for="code">Plase enter the 12-digit code you recieved in your welcome email:</label>
-    <input name="code" placeholder="e.g. 166384yhh">
-    <input type="submit" value="Register">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="container">
+        <img src="<%= avatar_url %>">
+        <div class="name"><%= name %></div>
+        <div class="title">Register for Techccelerator Hub</div>
+        <div class="message">
+            Hi, <%= username %>, copy & paste the 
+            12-digit code you recieved in your welcome email below
+            to create your Techccelerator Hub account!
+        </div>
+        <form method="post" action="/register">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="name" value="<%= name %>">
+            <input type="hidden" name="avatar_url" value="<%= avatar_url %>">
+            <input class="code" name="code" placeholder="e.g. 166384yhh">
+            <input class="btn" type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
