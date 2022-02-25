@@ -82,7 +82,7 @@ app.get('/workshops/:s/:ss', (req, res) => {
     const pageData = getWorkshopsPageData(s-1, ss-1)
     res.render('index',
         {
-            userData: {name: "Bridget", avatar_url: "nonelol"},
+            userData: {name: process.env.NAME, avatar_url: process.env.AVATAR_URL},
             tabData: {
                 tabs,
                 activeTab: 'workshops'
@@ -96,20 +96,11 @@ function getPageData(tab) {
     //TODO: MOVE TO CONSTANTS
     let data = {}
     switch (tab) {
-        case "curriculum":
-            data = {}
-            break;
         case "pre-techccelerator":
             data = getPreTechcceleratorPageData(0, 0)
             break;
-        case 'technical-reference-package':
-            data = {}
-            break;
         case "workshops":
             data = getWorkshopsPageData(0, 0)
-            break;
-        case "activities":
-            data = {}
             break;
     }
     return data

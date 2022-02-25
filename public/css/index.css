@@ -6,6 +6,10 @@
     --darkest-grey: #18191A;
     --green: #009900;
     --med-grey: #4d4d4d;
+    --large-font: 20px;
+    --med-font: 14px;
+    --small-font: 12px;
+    --footer-height: 50px;
 }
 
 * {
@@ -23,93 +27,40 @@ html {
     height: 100%;
 }
 
+html, body {
+    overflow: hidden;
+}
+
 #container {
     height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
 }
+
 
 #page {
     position: absolute;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 100%;
-    top: 110px;
+    height: calc(100% - var(--footer-height) - var(--header-height));
+    top: var(--header-height);
     background: var(--med-grey);
 }
 
 .page-with-sidebar-main {
     position: absolute;
-    left: 270px;
+    left: 20px;
     top: 20px;
-    width: 700px;
-    min-height: 550px;
-    display: inline-block;
+    width: (100% - var(--sidebar-width)); /* doesnt work */
+    height: 100%;
 }
 
 a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;
-}
-
-/* SIDEBAR */
-#sidebar {
-    width: 250px;
-    height: 100%;
-    display: inline-block;
-}
-
-ul {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-li.section {
-    list-style: none;
-    border-bottom: 1px solid var(--med-grey);
-    background-color: var(--darkest-grey);
-    padding-left: 30px;
-    line-height: 60px;
-    color: white;
-}
-
-li.sub-section {
-    list-style: none;
-    border-right: 1px solid var(--med-grey);
-    background-color: var(--dark-grey);
-    color: white;
-    border-bottom: 1px solid var(--med-grey);
-    padding-left: 30px;
-    line-height: 40px;
-    height: 40px;
-}
-
-.section,.sub-section {
-    font-size: 16px;
-}
-
-li.selected {
-    background-color: var(--med-grey);
-    color: white;
-    border-top: 1px solid var(--med-grey);
-    border-bottom: 1px solid var(--med-grey);
-    border-right: none;
-    /*border-left: 15px solid #aaa;*/
-}
-
-i {
-    position: relative;
-    height: 20px;
-    width: 20px;
-    right: 5px;
-}
-
-.fa-circle {
-    color: #aaa;
-}
-
-.fa-check-circle {
-    color: var(--green);
 }
 
 /* NAV BUTTONS */
@@ -161,7 +112,7 @@ iframe {
 
 /* FOOTER */
 footer {
-    height: 50px;
+    height: var(--footer-height);
     background: var(--darkest-grey);
     line-height: 50px;
     text-align: center;

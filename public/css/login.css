@@ -18,11 +18,11 @@
 }
 
 .title {
-    font-size: 40px;
+    font-size: var(--large-font);
 }
 
 .description {
-    font-size: 16px;
+    font-size: var(--med-font);
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -36,7 +36,7 @@
     padding: 10px;
     border-radius: 8px;
     color: black;
-    font-size: 30px;
+    font-size: var(--large-font);
     margin: 0 auto;
     float: bottom;
 }
