@@ -2,7 +2,7 @@ const axios = require('axios')
 const callbackUrl = '/login/oauth2/code/github'
 var port = process.env.PORT || 8000
 const devUrl = `http://localhost:${port}`
-const prodUrl = "https://pre-academy-site.herokuapp.com"
+const prodUrl = "https://techccelerator-hub.herokuapp.com"
 const githubApiBase = "https://api.github.com"
 
 const { addUser, getUser, getAllUsers } = require('../helpers/dbHelpers')
@@ -10,7 +10,8 @@ const { handleLogin } = require('../helpers/userAuthHelpers')
 
 module.exports = async function (app) {
     app.get('/github-oauth', (req, res) => {
-        res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${devUrl + callbackUrl}`);
+        const uri = process.env.NODE_ENV === "production" ? prodUrl + callbackUrl : devUrl + callbackUrl
+        res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&type=user_agent&redirect_uri=${uri}`);
     })
 
     app.get(callbackUrl, (req, res) => {
