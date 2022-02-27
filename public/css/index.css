@@ -113,3 +113,9 @@ footer {
     bottom:0;
     width: 100%;
 }
+
+/* PT VIDEO */
+#pt-video {
+    height: 500px;
+    width: 750px;
+}

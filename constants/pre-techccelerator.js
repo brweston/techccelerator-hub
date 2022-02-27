@@ -6,7 +6,7 @@ const sections = [
         subSections: [
             {
                 name: "About this course",
-                videoUrl: null,
+                videoUrl,
             }
         ],
     },
@@ -15,25 +15,20 @@ const sections = [
         subSections: [
             {
                 name: "Install Git",
-                videoUrl,
-            },
-            {
-                name: "Setup Github Auth",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/Yyc0dMxZHtQ",
             },
             {
                 name: "Install VSCode",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/fsyBPUHGIbw",
             },
             {
-                name: "Create project",
-                videoUrl,
+                name: "Setup project",
+                videoUrl: "https://www.youtube.com/embed/Z_0msfwxhMc",
 
             },
             {
                 name: "Upload to Github",
-                videoUrl,
-
+                videoUrl: "https://www.youtube.com/embed/6hL2_of2rlY",
             },
         ]
     },
@@ -42,7 +37,7 @@ const sections = [
         subSections: [
             {
                 name: "Basics of HTML",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/bQ0vZOfKTCw",
             },
             {
                 name: "HTML tags",
@@ -50,7 +45,7 @@ const sections = [
             },
             {
                 name: "Add HTML to your website",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/KoinJib3etc",
             },
         ]
     },
@@ -71,7 +66,7 @@ const sections = [
             },
             {
                 name: "Add CSS to your website",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/mANvR0eBsdA",
             },
         ]
     },
@@ -100,7 +95,7 @@ const sections = [
             },
             {
                 name: "Add JS to your website",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/PgOVA9lPEM4",
             },
         ]
     },
@@ -109,7 +104,7 @@ const sections = [
         subSections: [
             {
                 name: "Upload to Github",
-                videoUrl,
+                videoUrl: "https://www.youtube.com/embed/y5Pvil3GSgI",
             },
             {
                 name: "Final reminders",

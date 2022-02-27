@@ -2,8 +2,8 @@
 <%- include('../partials/sidebar', {pageData, pageKey, showCheckboxes: true }) %>
 <div class="page-with-sidebar-main">
     <%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].name %>
-    <video width="320" height="440" controls>
-        <source src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>" type="video/mov">
-    </video>
+    <iframe id="pt-video" width="320" height="440"
+        src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>">
+    </iframe>
     <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
 </div>
