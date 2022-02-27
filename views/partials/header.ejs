@@ -1,5 +1,6 @@
 <div id="header">
-    <img id="logo" src="img/techccelerator-logo.png">
+    <img id="logo" src="/img/techccelerator-logo.png">
+    <div class="title">Techccelerator Hub</div>
     <div id="nav">
         <% tabData.tabs.forEach(t => { %>
             <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
@@ -7,7 +8,7 @@
         <% }) %>
     </div>
     <div class="dropdown">
-        <img class="dropbtn" src="img/user-icon.png">
+        <img class="dropbtn" src="/img/user-icon.png">
         <div class="dropdown-content">
             <img src="<%= userData.avatar_url %>">
             <div class="name"><%= userData.name %></div>

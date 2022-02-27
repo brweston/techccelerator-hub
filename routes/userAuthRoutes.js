@@ -27,8 +27,6 @@ module.exports = async function (app) {
         .then(r => {
             const token = r.data['access_token']
             process.env.GH_TOKEN = token
-            console.log("TOKEN:::")
-            console.log(token)
             const h = {
                 'Content-Type': 'application/json',
                 'Accept': 'application/vnd.github.v3.raw',

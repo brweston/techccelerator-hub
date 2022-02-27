@@ -1,6 +1,5 @@
 <div id="sidebar">
     <ul>
-        <div class="sidebar-title"><%= pageKey.toUpperCase() %></div>
         <% pageData.sections.forEach((s, j) => { %>
             <% var sectionLink = `/${pageKey}/${j + 1}/${1}` %>
             <%- include('section', {link: sectionLink, name: s.name}) %>

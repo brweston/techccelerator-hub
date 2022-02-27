@@ -1,7 +1,6 @@
 /* HEADER */
 :root {
     --header-height: 70px;
-    --logo-height: 35px;
     --green: #009900;
     --med-grey: #4d4d4d;
     --tab-height: calc(var(--header-height) * (8/10));
@@ -25,11 +24,18 @@
     left: 0;
 }
 
+.title {
+    float: left;
+    width: auto;
+    display: inline;
+    width: calc(var(--sidebar-width) - var(--header-height));
+    line-height: var(--header-height);
+}
+
 /* NAV */
 #nav {
     height: var(--header-height);
     float: left;
-    margin-left: var(--sidebar-width);
 }
 
 .tab {
