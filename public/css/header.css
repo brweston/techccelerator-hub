@@ -1,81 +1,49 @@
 /* HEADER */
 :root {
     --header-height: 70px;
-    --nav-height: 50px;
+    --logo-height: 35px;
     --green: #009900;
     --med-grey: #4d4d4d;
-    --total-height: calc(var(--nav-height) + var(--header-height));
-    --new: lightpink;
+    --tab-height: calc(var(--header-height) * (8/10));
 }
 
 
 #header {
     height: var(--header-height);
-    padding: 5px 20px 5px 20px;
     background-color: var(--darkest-grey);
     width: 100%;
     color: white;
     position: fixed;
     top: 0;
 }
-#left {
-    line-height: 40px;
-    width: 85%;
-    height: 100%;
+
+/* LEFT IMG LOGO */
+#logo {
+    height: var(--header-height);
+    width: var(--header-height);
     float: left;
+    left: 0;
 }
 
-#left img {
-    display: inline-block;
-    height: 20px;
-    width: 67px;
-}
-#left .title {
-    display: inline-block;
-    font-size: var(--large-font);
-}
-#right {
-    width: 10%;
-    float: right;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 80%;
-}
-
-#right img {
-    margin: 0 auto;
-    display: block;
-}
-#right .name {
-    font-size: var(--med-font);
-    display: block;
-}
-
-.logout {
-    font-size: 12px;
-}
-
-/* HEADER NAV */
+/* NAV */
 #nav {
-    height: var(--nav-height);
-    width: 100%;
-    background: var(--darkest-grey);
-    position: absolute;
-    top: var(--header-height);
+    height: var(--header-height);
+    float: left;
+    margin-left: var(--sidebar-width);
 }
 
 .tab {
     display: inline-block;
     color: var(--med-grey);
     min-width: 50px;
-    border-radius: 1px 1px 0 0;
+    border-radius: 2px 2px 0 0;
     text-align: center;
     font-size: var(--med-font);
-    height: var(--nav-height);
-    line-height: var(--nav-height);
+    height: var(--tab-height);
+    line-height: var(--tab-height);
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 14px;
     background: var(--dark-grey);
 }
 
@@ -89,5 +57,61 @@
 }
 
 .active-tab:hover {
+    background: var(--med-grey);
+}
+
+/* RIGHT PROFILE */
+.dropdown {
+    float: right;
+    position: relative;
+    margin-right: 10px;
+    width: calc(2* var(--header-height));
+    text-align: center;
+}
+
+.dropbtn {
+    height: calc(var(--header-height) * (9/10));
+    width: calc(var(--header-height) * (9/10));
+}
+
+
+.dropdown-content {
+    display: none;
+}
+
+.show {
+    display: block;
+    position: absolute;
+    background-color: var(--darkest-grey);
+    min-width: calc(2* var(--header-height));
+    right: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color: white;
+    min-height: var(--header-height);
+    
+}
+
+.dropdown-content img {
+    margin: 0 auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.dropdown-content .name {
+    font-size: var(--med-font);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.logout {
+    font-size: var(--med-font);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.logout:hover {
     background: var(--med-grey);
 }

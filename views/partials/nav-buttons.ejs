@@ -1,4 +1,14 @@
 <div class="nav-buttons">
-    <a href="<%= back %>"><div class="nav-btn back">Back</div></a>
-    <a href="<%= next %>"><div class="nav-btn next">Next</div></a>
+    <% if (back) { %>
+        <a href="<%= back %>"><div class="nav-btn back">Back</div></a>
+    <% } else { %>
+        <div class="nav-btn back disabled">Back</div>
+    <% } %>
+    <% if (!next) { %>
+        <div class="nav-btn next disabled">Next</div>
+    <% } else if (next === "finish") { %>
+        <a href="/home"><div class="nav-btn next">Finish</div></a>
+    <% } else { %>
+        <a href="<%= next %>"><div class="nav-btn next">Next</div></a>
+    <% } %>
 </div>

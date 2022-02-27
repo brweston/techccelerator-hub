@@ -4,12 +4,16 @@
     --dark-grey: #242526;
     --grey: #3A3B3C;
     --darkest-grey: #18191A;
+    --light-grey: #eee;
     --green: #009900;
     --med-grey: #4d4d4d;
     --large-font: 20px;
     --med-font: 14px;
     --small-font: 12px;
     --footer-height: 50px;
+    --sidebar-width: 250px;
+    --video-width: 750px;
+    --video-height: 500px;
 }
 
 * {
@@ -31,23 +35,21 @@ html, body {
     overflow: hidden;
 }
 
-
-
 main {
     position: absolute;
     width: 100%;
-    top: var(--total-height);
-    height: calc(100% - var(--footer-height) - var(--total-height));
-    background: var(--med-grey);
+    top: var(--header-height);
+    height: calc(100% - var(--footer-height) - var(--header-height));
     left: 0;
+    background: var(--med-grey);
 }
 
+/* ANY PAGE WITH A SIDEBAR */
 .page-with-sidebar-main {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    width: (100% - var(--sidebar-width)); /* doesnt work */
-    height: 100%;
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 10px;
 }
 
 a, a:hover, a:focus, a:active {
@@ -55,7 +57,18 @@ a, a:hover, a:focus, a:active {
     color: inherit;
 }
 
+/* PT VIDEO */
+#pt-video {
+    height: var(--video-height);
+    width: var(--video-width);
+}
+
 /* NAV BUTTONS */
+.nav-buttons {
+    height: 50px;
+    width: var(--video-width);
+    margin-top: calc(var(--video-height) + 10px);
+}
 .nav-btn {
     background-color: var(--darkest-grey);
     color: white;
@@ -63,19 +76,17 @@ a, a:hover, a:focus, a:active {
     width: 80px;
     text-align: center;
     line-height: 50px;
-    cursor: pointer;
 }
 
-.nav-btn-disabled {
+.nav-btn:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.disabled {
     cursor: not-allowed;
     opacity: 0.5;
     color: #aaa;
-}
-
-.nav-buttons {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 .back {
     float: left;
@@ -83,11 +94,6 @@ a, a:hover, a:focus, a:active {
 
 .next {
     float: right;
-}
-
-/* PAGE (SUBSECTION PAGE) */
-video {
-    width: 100%;
 }
 
 /* TECHNICAL REFERENCE PACKAGE */
@@ -112,10 +118,4 @@ footer {
     position:fixed;
     bottom:0;
     width: 100%;
-}
-
-/* PT VIDEO */
-#pt-video {
-    height: 500px;
-    width: 750px;
 }

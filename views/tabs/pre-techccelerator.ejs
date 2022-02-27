@@ -1,9 +1,13 @@
 <% var pageKey = 'pre-techccelerator' %>
 <%- include('../partials/sidebar', {pageData, pageKey, showCheckboxes: true }) %>
 <div class="page-with-sidebar-main">
-    <%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].name %>
-    <iframe id="pt-video" width="320" height="440"
-        src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>">
+    <iframe id="pt-video" src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>">
     </iframe>
-    <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
+    <% if (pageData.sIndex === 0 && pageData.ssIndex === 0) { %>
+        <%- include('../partials/nav-buttons', {back: undefined, next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
+    <% } else if (pageData.sIndex === pageData.sections.length - 1 && pageData.ssIndex === pageData.sections[pageData.sIndex].subSections.length - 1) { %>
+        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: "finish"}) %>
+    <% } else { %>
+        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
+    <% } %>
 </div>

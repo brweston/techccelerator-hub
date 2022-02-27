@@ -1,17 +1,40 @@
 <div id="header">
-    <div id="left">
-        <img src="htulogo.png" height="30px" width="30px">
-        <a href="/curriculum"><div class="title">Techccelerator Hub</div></a>
+    <img id="logo" src="img/techccelerator-logo.png">
+    <div id="nav">
+        <% tabData.tabs.forEach(t => { %>
+            <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
+            <a href="/<%= t %>"><div class="tab <%= activeClass %>"><%= t.replace("-", " ") %></div></a>
+        <% }) %>
     </div>
-    <div id="right">
-        <img src="<%= userData.avatar_url %>" height="30px" width="30px">
-        <div class="name"><%= userData.name.split(" ")[0] %></div>
-        <a href="/logout"><div class="logout">Logout</div></a>
+    <div class="dropdown">
+        <img class="dropbtn" src="img/user-icon.png">
+        <div class="dropdown-content">
+            <img src="<%= userData.avatar_url %>">
+            <div class="name"><%= userData.name %></div>
+            <a href="/logout"><div class="logout">Logout</div></a>
+        </div>
     </div>
 </div>
-<div id="nav">
-    <% tabData.tabs.forEach(t => { %>
-        <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
-        <a href="/<%= t %>"><div class="tab <%= activeClass %>"><%= t.replace("-", " ") %></div></a>
-    <% }) %>
-</div>
+<script>
+    window.addEventListener("load", () => {
+        let db = document.querySelector(".dropbtn")
+        let dc = document.querySelector(".dropdown-content")
+        let m = document.querySelector("main")
+
+        db.addEventListener("click", () => {
+            dc.classList.toggle("show")
+            m.style.zIndex = "-1"
+        })
+
+        window.addEventListener("click", (e) => {
+            let c = e.target.className
+            if (c === '' || (!c === "dropbtn" && !c === "logout" && !c === "dropdown-content")) {
+                if (dc.classList.contains("show")) {
+                    dc.classList.remove("show")
+                    //remove main z-index
+                    m.style.zIndex = 'initial'
+                }
+            }
+        })
+    })
+</script>

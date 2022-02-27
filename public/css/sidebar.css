@@ -1,12 +1,9 @@
 /* SIDEBAR */
 
-:root {
-    --sidebar-width: 250px;
-}
 #sidebar {
     width: var(--sidebar-width);
     height: 100%;
-    float: right;
+    float: left;
     background: var(--darkest-grey);
 }
 
