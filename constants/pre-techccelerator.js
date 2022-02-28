@@ -7,7 +7,7 @@ const sections = [
         subSections: [
             {
                 name: "About this course",
-                videoUrl: baseUrl + "",
+                videoUrl: baseUrl + "gAbK8h5Qw2o",
             }
         ],
     },
@@ -41,10 +41,6 @@ const sections = [
                 videoUrl: baseUrl + "bQ0vZOfKTCw",
             },
             {
-                name: "HTML tags",
-                videoUrl: baseUrl + "",
-            },
-            {
                 name: "Add HTML to your website",
                 videoUrl: baseUrl + "KoinJib3etc",
             },
@@ -55,15 +51,11 @@ const sections = [
         subSections: [
             {
                 name: "Basics of CSS",
-                videoUrl: baseUrl + "",
-            },
-            {
-                name: "Important styles",
-                videoUrl: baseUrl + "",
+                videoUrl: baseUrl + "-J5sLN4Oi58",
             },
             {
                 name: "Advanced styling",
-                videoUrl: baseUrl + "",
+                videoUrl: baseUrl + "-dcIcF2SSHw",
             },
             {
                 name: "Add CSS to your website",
@@ -108,7 +100,7 @@ const sections = [
             },
             {
                 name: "Modifying the DOM",
-                videoUrl: baseUrl + "",
+                videoUrl: baseUrl + "6GJg3i715lQ",
             },
             {
                 name: "Add JS to your website",
@@ -122,10 +114,6 @@ const sections = [
             {
                 name: "Upload to Github",
                 videoUrl: baseUrl + "y5Pvil3GSgI",
-            },
-            {
-                name: "Final reminders",
-                videoUrl: baseUrl + "",
             },
         ]
     }
