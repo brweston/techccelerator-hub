@@ -6,7 +6,7 @@
     <% if (pageData.sIndex === 0 && pageData.ssIndex === 0) { %>
         <%- include('../partials/nav-buttons', {back: undefined, next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
     <% } else if (pageData.sIndex === pageData.sections.length - 1 && pageData.ssIndex === pageData.sections[pageData.sIndex].subSections.length - 1) { %>
-        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: "finish"}) %>
+        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: undefined}) %>
     <% } else { %>
         <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
     <% } %>

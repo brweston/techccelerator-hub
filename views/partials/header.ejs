@@ -3,8 +3,12 @@
     <div class="title">Techccelerator Hub</div>
     <div id="nav">
         <% tabData.tabs.forEach(t => { %>
-            <% var activeClass = (tabData.activeTab === t) ? 'active-tab' : '' %>
-            <a href="/<%= t %>"><div class="tab <%= activeClass %>"><%= t.replace("-", " ") %></div></a>
+            <% var activeClass = (tabData.activeTab === t.key) ? 'active-tab' : '' %>
+            <% if (isPTOnly) { %>
+                <div class="tab <%= activeClass %>"><%= t.name %></div>
+            <% } else { %>
+                <a href="/<%= t.key %>"><div class="tab <%= activeClass %>"><%= t.name %></div></a>
+            <% } %>
         <% }) %>
     </div>
     <div class="dropdown">

@@ -21,4 +21,13 @@ const getNextKey = (pageKey, sections, s, ss) => {
     return '/' + pageKey + '/' + (ns + 1).toString() + '/' + (nss + 1).toString()
 }
 
+const getKeyFromName = (sectionName) => {
+    const key = sectionName.split('').map(s => {
+        if (s ===' ') return '-'
+        if (s < '0' || (s > '9' && s < 'A') || (s > 'Z' && s < 'a') || s > 'z') return '' //any other unwanted char such as '?'
+        return s    //lowercase letters
+    })
+    return key.join('')
+}
+
 module.exports = { getBackKey, getNextKey }

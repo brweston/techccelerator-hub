@@ -1,4 +1,5 @@
 const videoUrl = "../../public/codevid.mov"
+const baseUrl = "https://www.youtube.com/embed/"
 
 const sections = [
     {
@@ -6,7 +7,7 @@ const sections = [
         subSections: [
             {
                 name: "About this course",
-                videoUrl,
+                videoUrl: baseUrl + "",
             }
         ],
     },
@@ -15,20 +16,20 @@ const sections = [
         subSections: [
             {
                 name: "Install Git",
-                videoUrl: "https://www.youtube.com/embed/Yyc0dMxZHtQ",
+                videoUrl: baseUrl + "Yyc0dMxZHtQ",
             },
             {
                 name: "Install VSCode",
-                videoUrl: "https://www.youtube.com/embed/fsyBPUHGIbw",
+                videoUrl: baseUrl + "fsyBPUHGIbw",
             },
             {
                 name: "Setup project",
-                videoUrl: "https://www.youtube.com/embed/Z_0msfwxhMc",
+                videoUrl: baseUrl + "Z_0msfwxhMc",
 
             },
             {
                 name: "Upload to Github",
-                videoUrl: "https://www.youtube.com/embed/6hL2_of2rlY",
+                videoUrl: baseUrl + "6hL2_of2rlY",
             },
         ]
     },
@@ -37,15 +38,15 @@ const sections = [
         subSections: [
             {
                 name: "Basics of HTML",
-                videoUrl: "https://www.youtube.com/embed/bQ0vZOfKTCw",
+                videoUrl: baseUrl + "bQ0vZOfKTCw",
             },
             {
                 name: "HTML tags",
-                videoUrl,
+                videoUrl: baseUrl + "",
             },
             {
                 name: "Add HTML to your website",
-                videoUrl: "https://www.youtube.com/embed/KoinJib3etc",
+                videoUrl: baseUrl + "KoinJib3etc",
             },
         ]
     },
@@ -54,19 +55,19 @@ const sections = [
         subSections: [
             {
                 name: "Basics of CSS",
-                videoUrl,
+                videoUrl: baseUrl + "",
             },
             {
                 name: "Important styles",
-                videoUrl,
+                videoUrl: baseUrl + "",
             },
             {
                 name: "Advanced styling",
-                videoUrl,
+                videoUrl: baseUrl + "",
             },
             {
                 name: "Add CSS to your website",
-                videoUrl: "https://www.youtube.com/embed/mANvR0eBsdA",
+                videoUrl: baseUrl + "mANvR0eBsdA",
             },
         ]
     },
@@ -74,28 +75,44 @@ const sections = [
         name: "Javascript Tutorial",
         subSections: [
             {
-                name: "What is Javascript?",
-                videoUrl,
+                name: "Basics",
+                videoUrl: baseUrl + "cyVox3tU7Wk",
             },
             {
                 name: "Variables",
-                videoUrl,
+                videoUrl: baseUrl + "1tKk7qZQhqw",
+            },
+            {
+                name: "Comparisons",
+                videoUrl: baseUrl + "HXdGCogtH38"
             },
             {
                 name: "Conditionals",
-                videoUrl,
+                videoUrl: baseUrl + "CsXvAmRrqiU",
+            },
+            {
+                name: "Loops",
+                videoUrl: baseUrl + "4aFr9j5EOzE",
+            },
+            {
+                name: "Arrays",
+                videoUrl: baseUrl + "izVS-2uMurA",
             },
             {
                 name: "Functions",
-                videoUrl,
+                videoUrl: baseUrl + "acEy9C7-p7g",
+            },
+            {
+                name: "Javascript Objects",
+                videoUrl: baseUrl + "Gj58fx2C5MU"
             },
             {
                 name: "Modifying the DOM",
-                videoUrl,
+                videoUrl: baseUrl + "",
             },
             {
                 name: "Add JS to your website",
-                videoUrl: "https://www.youtube.com/embed/PgOVA9lPEM4",
+                videoUrl: baseUrl + "PgOVA9lPEM4",
             },
         ]
     },
@@ -104,11 +121,11 @@ const sections = [
         subSections: [
             {
                 name: "Upload to Github",
-                videoUrl: "https://www.youtube.com/embed/y5Pvil3GSgI",
+                videoUrl: baseUrl + "y5Pvil3GSgI",
             },
             {
                 name: "Final reminders",
-                videoUrl,
+                videoUrl: baseUrl + "",
             },
         ]
     }

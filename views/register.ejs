@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <div id="container">
         <img src="<%= avatar_url %>">
-        <div class="name"><%= name %></div>
+        <div class="user-name"><%= username %></div>
         <div class="title">Register for Techccelerator Hub</div>
         <div class="message">
-            Hi, <%= username %>, copy & paste the 
+            Hi <%= name %>, copy & paste the 
             12-digit code you recieved in your welcome email below
             to create your Techccelerator Hub account!
         </div>
-        <form method="post" action="/register">
+        <form class="register-form" method="post" action="/register">
             <input type="hidden" name="username" value="<%= username %>">
             <input type="hidden" name="name" value="<%= name %>">
             <input type="hidden" name="avatar_url" value="<%= avatar_url %>">

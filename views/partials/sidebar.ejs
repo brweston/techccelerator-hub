@@ -2,7 +2,7 @@
     <ul>
         <% pageData.sections.forEach((s, j) => { %>
             <% var sectionLink = `/${pageKey}/${j + 1}/${1}` %>
-            <%- include('section', {link: sectionLink, name: s.name}) %>
+            <%- include('section', {link: sectionLink, name: s.name, first: j === 0}) %>
             <% if (pageData.sIndex === j) { %>
                 <% s.subSections.forEach((ss, k) => { %>
                     <% var l = `/${pageKey}/${j+1}/${k+1}` %>

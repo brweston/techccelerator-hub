@@ -1,14 +1,17 @@
 const tabs = [
-    "home",
-    "curriculum",
-    "pre-techccelerator",
-    'technical-reference-package',
-    "workshops",
-    "activities"
+    {key: "home", name: "Home"},
+    {key: "curriculum", name: "Curriculum"},
+    {key: "pre-techccelerator", name: "Pre-Techccelerator"},
+    {key: 'technical-reference-package', name: "Technical Reference Package"},
+    {key: "workshops", name: "Workshops"},
+    {key: "activities", name: "Activities"}
 ]
 
 const codes = [
     "1234"
 ]
 
-module.exports = {tabs, codes}
+//list of usernames of users that can view entire site (otherwise, pt only)
+const fullAccessUsers = ["brweston"]
+
+module.exports = {tabs, codes, fullAccessUsers}

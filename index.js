@@ -13,6 +13,7 @@ const { getBackKey, getNextKey} = require('./constants/sidebar')
 const workshopsConstants = require('./constants/workshops')
 const { tabs } = require('./constants/constants')
 const { startDB } = require('./helpers/dbHelpers')
+const { ensureLoggedIn, isPTOnly } = require('./helpers/mainHelpers')
 
 startDB()
 
@@ -21,12 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "/public")))
 app.set('view engine', 'ejs')
-
-function ensureLoggedIn(res) {
-    if (!(process.env.USERNAME && process.env.NAME && process.env.AVATAR_URL)) {
-        res.redirect('/login')
-    }
-}
 
 /* USER AUTH ROUTES */
 require('./routes/userAuthRoutes')(app)
@@ -41,7 +36,7 @@ app.get('/', (req, res) => {
 
 /* PAGE ROUTES */
 tabs.forEach(t => {
-    app.get(`/${t}`, (req, res) => {
+    app.get(`/${t.key}`, (req, res) => {
         ensureLoggedIn(res)
         res.render(
             'index',
@@ -49,9 +44,10 @@ tabs.forEach(t => {
                 userData: {name: process.env.NAME, avatar_url: process.env.AVATAR_URL},
                 tabData: {
                     tabs,
-                    activeTab: t
+                    activeTab: t.key
                 },
-                pageData: getPageData(t)
+                pageData: getPageData(t.key),
+                isPTOnly: isPTOnly()
             }
         )
     })
@@ -69,7 +65,8 @@ app.get('/pre-techccelerator/:s/:ss', (req, res) => {
                 tabs,
                 activeTab: 'pre-techccelerator'
             },
-            pageData
+            pageData,
+            isPTOnly: isPTOnly()
         }
     )
 })
@@ -86,7 +83,8 @@ app.get('/workshops/:s/:ss', (req, res) => {
                 tabs,
                 activeTab: 'workshops'
             },
-            pageData
+            pageData,
+            isPTOnly: isPTOnly()
         }
     )
 })

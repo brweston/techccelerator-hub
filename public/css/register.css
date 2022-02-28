@@ -16,31 +16,41 @@
 }
 
 img {
-    height: 60px;
-    width: 60px;
+    height: 20%;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
-.name {
+.user-name {
     font-size: var(--med-font);
 }
 
 .title {
     font-size: var(--large-font);
-    background: var(--med-grey);
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 90%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
 .message {
     font-size: var(--med-font);
-    background: var(--med-grey);
     margin-bottom: 20px;
-    width: 90%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
+}
+
+.register-form {
+    position: absolute;
+    bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 90%;
 }
 
 .code {
@@ -54,4 +64,6 @@ img {
     height: 35px;
     font-size: var(--med-font);
     width: 30%;
+    background: var(--light-grey);
+	color: black;
 }

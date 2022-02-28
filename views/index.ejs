@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/dcbd972c7e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <%- include('partials/header', {userData, tabData}) %>
+    <%- include('partials/header', {userData, tabData, isPTOnly}) %>
     <main>
         <%- include('tabs/'+tabData.activeTab, {pageData}) %>
     </main>

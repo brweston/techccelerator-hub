@@ -6,9 +6,10 @@ const prodUrl = "https://techccelerator-hub.herokuapp.com"
 const githubApiBase = "https://api.github.com"
 
 const { addUser, getUser, getAllUsers } = require('../helpers/dbHelpers')
-const { handleLogin } = require('../helpers/userAuthHelpers')
+const { isPTOnly } = require('../helpers/mainHelpers')
 
 const { codes } = require('../constants/constants')
+
 
 module.exports = async function (app) {
     app.get('/github-oauth', (req, res) => {
@@ -45,19 +46,15 @@ module.exports = async function (app) {
                         process.env.USERNAME = user.username
                         process.env.NAME = user.full_name
                         process.env.AVATAR_URL = avatar_url
-                        res.redirect('/home')
+                        if (isPTOnly()) {
+                            res.redirect('/pre-techccelerator/1/1')
+                        }
+                        else {
+                            res.redirect('/home')
+                        }
 
                     }
                 })
-
-                /* handleLogin(login, name, (user) => {
-                    //console.log("Got user! " + JSON.stringify(user))
-                    if (!user)
-                    process.env.USERNAME = user.username
-                    process.env.NAME = user.full_name
-                    process.env.AVATAR_URL = avatar_url
-                    res.redirect('/home')
-                }) */
 
             })
             .catch(e => console.log(e))
@@ -90,7 +87,7 @@ module.exports = async function (app) {
         const { username, name, code, avatar_url} = req.body
 
         if (codes.includes(code)) {
-            addUser(username, name, 0)
+            addUser(username, name)
             process.env.USERNAME = username
             process.env.NAME = name
             process.env.AVATAR_URL = avatar_url
@@ -100,7 +97,8 @@ module.exports = async function (app) {
         }
         
     })
-    app.get('/register', (req, res) => {
-        res.render('register', {username: "brweston", avatar_url: "some", name: "Bridget Weston"})
-    })
+    /* app.get('/register', (req, res) => {
+        //DELETE ROUTE: only for test! User should not be able to navigate here on their own
+        res.render('register', {username: "brweston", avatar_url: "/img/user-icon-2.png", name: "Bridget Weston"})
+    }) */
 }

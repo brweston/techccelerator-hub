@@ -1,6 +1,6 @@
 const sections = [
     {
-        name: "git-101",
+        name: "Git 101",
         subSections: [
             {
                 name: 'What is VC?'
@@ -8,7 +8,7 @@ const sections = [
         ]
     },
     {
-        name: "wireframing",
+        name: "Wireframing",
         subSections: [
             {
                 name: 'wire-test'
@@ -16,7 +16,7 @@ const sections = [
         ]
     },
     {
-        name: "agile",
+        name: "Agile",
         subSections: [
             {
                 name: 'agiless'
@@ -24,7 +24,7 @@ const sections = [
         ]
     },
     {
-        name: "ejs-express",
+        name: "EJS & Express",
         subSections: [
             {
                 name: 'ejsexpressss'
@@ -32,7 +32,7 @@ const sections = [
         ]
     },
     {
-        name: "ejs-express-advanced",
+        name: "EJS & Express Advanced",
         subSections: [
             {
                 name: 'eea-ss'
@@ -40,7 +40,7 @@ const sections = [
         ]
     },
     {
-        name: "databases",
+        name: "Databases",
         subSections: [
             {
                 name: 'db-ss'
@@ -48,7 +48,7 @@ const sections = [
         ]
     },
     {
-        name: "user-auth",
+        name: "User Auth",
         subSections: [
             {
                 name: 'ua-ss'
@@ -56,7 +56,7 @@ const sections = [
         ]
     },
     {
-        name: "deploying-101",
+        name: "Deploying 101",
         subSections: [
             {
                 name: 'dep-ss'

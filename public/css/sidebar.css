@@ -41,6 +41,10 @@ li.sub-section {
     font-size: var(--med-font);
 }
 
+.first {
+    border-top: 1px solid var(--med-grey);
+}
+
 li.selected {
     background-color: var(--med-grey);
     color: white;

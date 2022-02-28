@@ -12,13 +12,13 @@ function startDB() {
 }
 
 /* db.run(
-    `CREATE TABLE users(username, full_name, last_completed)`
+    `CREATE TABLE users(username, full_name)`
 ) */
 
-function addUser(username, full_name, last_completed) {
-    const q = `INSERT INTO users(username, full_name, last_completed) values(?, ?, ?)`
+function addUser(username, full_name) {
+    const q = `INSERT INTO users(username, full_name) values(?, ?)`
 
-    db.run(q, [username, full_name, last_completed], (err) => {
+    db.run(q, [username, full_name], (err) => {
         if (err) return console.error(err.message)
 
         console.log(`New user ${full_name} created!`)
