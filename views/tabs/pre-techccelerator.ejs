@@ -1,13 +1,21 @@
 <% var pageKey = 'pre-techccelerator' %>
 <%- include('../partials/sidebar', {pageData, pageKey, showCheckboxes: true }) %>
+<% var ssData = pageData.sections[pageData.sIndex].subSections[pageData.ssIndex] %>
+<% var type = "video" %>
 <div class="page-with-sidebar-main">
-    <iframe id="pt-video" src="<%= pageData.sections[pageData.sIndex].subSections[pageData.ssIndex].videoUrl %>">
-    </iframe>
-    <% if (pageData.sIndex === 0 && pageData.ssIndex === 0) { %>
-        <%- include('../partials/nav-buttons', {back: undefined, next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
-    <% } else if (pageData.sIndex === pageData.sections.length - 1 && pageData.ssIndex === pageData.sections[pageData.sIndex].subSections.length - 1) { %>
-        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: undefined}) %>
+    <% if (ssData.videoUrl) { %>
+        <iframe id="pt-video" src="<%= ssData.videoUrl %>"></iframe>
     <% } else { %>
-        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex)}) %>
+        <% type = "resources" %>
+        <% ssData.resources.forEach(r => { %>
+            <div class="resource"><a href="<%= r.url %>"><i class="fa fa-download"></i><%= r.title %></a></div>
+        <% }) %>
+    <% } %>
+    <% if (pageData.sIndex === 0 && pageData.ssIndex === 0) { %>
+        <%- include('../partials/nav-buttons', {back: undefined, next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), type}) %>
+    <% } else if (pageData.sIndex === pageData.sections.length - 1 && pageData.ssIndex === pageData.sections[pageData.sIndex].subSections.length - 1) { %>
+        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: undefined, type}) %>
+    <% } else { %>
+        <%- include('../partials/nav-buttons', {back: pageData.getBackKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), next: pageData.getNextKey(pageKey, pageData.sections, pageData.sIndex, pageData.ssIndex), type}) %>
     <% } %>
 </div>

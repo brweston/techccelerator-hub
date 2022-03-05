@@ -1,4 +1,3 @@
-const videoUrl = "../../public/codevid.mov"
 const baseUrl = "https://www.youtube.com/embed/"
 
 const sections = [
@@ -31,6 +30,14 @@ const sections = [
                 name: "Upload to Github",
                 videoUrl: baseUrl + "6hL2_of2rlY",
             },
+            {
+                name: 'Resources',
+                resources: [
+                    { title: "Git Download", url: "https://git-scm.com/downloads"},
+                    { title: "Creating a Github Token", url: "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"},
+                    { title: "Caching your Github Token", url: "https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git"}
+                ]
+            }
         ]
     },
     {

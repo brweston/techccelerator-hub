@@ -50,6 +50,15 @@ main {
     width: auto;
     height: auto;
     padding: 10px;
+    border: 2px solid blue;
+}
+
+.resource {
+    border-radius: 2px;
+    background: var(--light-grey);
+    overflow: hidden;
+    padding: 7px;
+    margin-bottom: 10px;
 }
 
 a, a:hover, a:focus, a:active {
